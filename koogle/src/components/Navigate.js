@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SearchImg from "../assets/search.png"
 
 const Navigators = () => {
   return (
@@ -16,7 +17,7 @@ const Navigators = () => {
       <DetailNavDiv>others</DetailNavDiv>
       <NavSearchDiv>
               <NavTextDiv>search</NavTextDiv>
-              <NavImgDiv><img src="search.png"></img> </NavImgDiv>
+              <NavImgDiv><img src={SearchImg}></img> </NavImgDiv>
       </NavSearchDiv>
     </NavBigDiv>
   );
@@ -40,8 +41,8 @@ export const DetailNavDiv = styled.div`
   margin: 0 60px;
   float: left;
   text-align: center;
-  line-height: 48px;
-  font-size: 24px;
+  line-height: 50px;
+  font-size: 20px;
 
 `;
 
@@ -49,8 +50,8 @@ const SmallDetailDiv = styled.div`
 
   float: left;
   text-align: center;
-  line-height: 48px;
-  font-size: 24px;
+  line-height: 50px;
+  font-size: 20px;
 `;
 
 
@@ -60,7 +61,7 @@ export const NavSearchDiv = styled.div`
   height: 35px;
   margin-left: 1250px;
   margin-right: 60px;
-  font-size: 24px;
+  font-size: 20px;
   background-color: white;
   border-radius: 40px;
   text-align: left;
@@ -73,7 +74,7 @@ export const NavSearchDiv = styled.div`
 const NavTextDiv = styled.div`
   margin-left: 40px;
   margin-right: auto;
-  line-height: 35px;
+  line-height: 30px;
 `;
 const NavImgDiv = styled.div`
     margin-right: 30px;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationCrosshairs, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import SettingImg from "../assets/setting.png"
 
 const Header = () => {
