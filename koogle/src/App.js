@@ -1,16 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './components/Header';
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./components/Header";
 import Navigators from "./components/Navigate";
 import Filter from "./components/Filter";
-import Main2 from './components/Main2';
+import Main2 from "./components/Main2";
+import Main3 from "./components/Main3";
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Filter></Filter>
-      <Main2></Main2>
+      <Navigators></Navigators>
+      <Main3></Main3>
     </div>
   );
 }
