@@ -7,7 +7,7 @@ const Info = () => {
     <>
       <First>
         <InfoBox width="1020px" height="450px" marginLeft="180px">
-          <ImageBox src={testimg} alt="restaurant pic" />
+          <ImageBox src={testimg} alt="rurant pic" />
           <StoreInfo>
             <TopInfo>
               <StoreName>DugaHun Restraurant</StoreName>
@@ -20,6 +20,15 @@ const Info = () => {
                 <PhoneNumberText>02-1234-5678</PhoneNumberText>
               </PhoneNumberContainer>
             </BottomInfo>
+            <AddressInfo>📍Seoul, Jongro- gu, Samcheong-ro 14</AddressInfo>
+            <OpeningInfo>Mon 12:00 - 22: 00</OpeningInfo>
+            <OpeningInfo>Tue 12:00 - 22: 00</OpeningInfo>
+            <OpeningInfo>Wed 12:00 - 22: 00</OpeningInfo>
+            <OpeningInfo>Thur 12:00 - 22: 00</OpeningInfo>
+            <OpeningInfo>Fri 12:00 - 22: 00</OpeningInfo>
+            <OpeningInfo>Sat 12:00 - 22: 00</OpeningInfo>
+            <OpeningInfo>Sun 12:00 - 22: 00</OpeningInfo>
+            <button>Reservation Available</button>
           </StoreInfo>
         </InfoBox>
         <MapBox width="500px" height="450px" marginLeft="40px" />
@@ -43,16 +52,60 @@ const Info = () => {
             <DetailReview>️ 🥰 Friendly Service 77</DetailReview>
           </NaverReview>
           <NaverReview>
-            <DetailReview>️ ⭐⭐⭐⭐⭐</DetailReview>
-            <DetailReview>️ ⭐⭐⭐⭐</DetailReview>
-            <DetailReview>️ ⭐⭐⭐</DetailReview>
-            <DetailReview>️ ⭐⭐</DetailReview>
-            <DetailReview>️ ⭐</DetailReview>
+            <DetailReview>️ 🖼️Nice Interrior 113</DetailReview>
+            <DetailReview>️ 🍕 Delicious Food 89</DetailReview>
+            <DetailReview>️ ☀️ Nice View 83</DetailReview>
+            <DetailReview>️ 🍷 For Special Day 81</DetailReview>
+            <DetailReview>️ 🥰 Friendly Service 77</DetailReview>
+            See more Review
           </NaverReview>
         </ReviewBox>
       </Second>
       <Third>
-        <MenuBox width="1563px" height="450px" marginLeft="180px" />
+        <MenuBox width="1563px" height="517px" marginLeft="180px">
+          <MenuInfo>
+            <Menuimg src={testimg} alt="메뉴 사진" />
+            <MenuPriceContainer>
+              <MenuPrice>수저가 짬뽕</MenuPrice>
+              <MenuPrice>7000 ₩</MenuPrice>
+            </MenuPriceContainer>
+          </MenuInfo>
+          <MenuInfo>
+            <Menuimg src={testimg} alt="메뉴 사진" />
+            <MenuPriceContainer>
+              <MenuPrice>수저가 짬뽕</MenuPrice>
+              <MenuPrice>7000 ₩</MenuPrice>
+            </MenuPriceContainer>
+          </MenuInfo>
+          <MenuInfo>
+            <Menuimg src={testimg} alt="메뉴 사진" />
+            <MenuPriceContainer>
+              <MenuPrice>수저가 짬뽕</MenuPrice>
+              <MenuPrice>7000 ₩</MenuPrice>
+            </MenuPriceContainer>
+          </MenuInfo>
+          <MenuInfo>
+            <Menuimg src={testimg} alt="메뉴 사진" />
+            <MenuPriceContainer>
+              <MenuPrice>수저가 짬뽕</MenuPrice>
+              <MenuPrice>7000 ₩</MenuPrice>
+            </MenuPriceContainer>
+          </MenuInfo>
+          <MenuInfo>
+            <Menuimg src={testimg} alt="메뉴 사진" />
+            <MenuPriceContainer>
+              <MenuPrice>수저가 짬뽕</MenuPrice>
+              <MenuPrice>7000 ₩</MenuPrice>
+            </MenuPriceContainer>
+          </MenuInfo>
+          <MenuInfo>
+            <Menuimg src={testimg} alt="메뉴 사진" />
+            <MenuPriceContainer>
+              <MenuPrice>수저가 짬뽕</MenuPrice>
+              <MenuPrice>7000 ₩</MenuPrice>
+            </MenuPriceContainer>
+          </MenuInfo>
+        </MenuBox>
       </Third>
     </>
   );
@@ -126,6 +179,18 @@ const BottomInfo = styled.div`
   flex-direction: row;
   align-items: center;
   margin-left: 40px; // 이미지와의 간격 조절
+`;
+
+const AddressInfo = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const OpeningInfo = styled.div`
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  align-items: center;
 `;
 
 const Ratings = styled.p`
@@ -203,14 +268,44 @@ const DetailReview = styled.div`
   font-size: 20px;
 `;
 
-const Score = styled.div`
+const MenuBox = styled(BaseBox)`
   display: flex;
-  flex-direction: column;
-
-  width: 337px;
-  height: 231px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-left: 45px;
+  padding-top: 53px;
+  border: 1px solid black;
 `;
 
-const MenuBox = styled(BaseBox)`
+const MenuInfo = styled.div`
+  display: flex;
+  width: 350px;
+  height: 188px;
+  margin-right: 35px;
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+
   border: 1px solid black;
+`;
+
+const MenuPriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+`;
+
+const Menuimg = styled.img`
+  display: flex;
+  width: 210px;
+  height: 188px;
+  border: 1pxsolid black;
+`;
+
+const MenuPrice = styled.div`
+  display: flex;
+  margin: 40px 20px 0px 0px;
+  width: 356px;
+  height: 43px;
 `;
