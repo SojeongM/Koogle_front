@@ -64,46 +64,42 @@ const Info = () => {
       <Third>
         <MenuBox width="1563px" height="517px" marginLeft="180px">
           <MenuInfo>
-            <Menuimg src={testimg} alt="메뉴 사진" />
-            <MenuPriceContainer>
-              <MenuPrice>수저가 짬뽕</MenuPrice>
-              <MenuPrice>7000 ₩</MenuPrice>
-            </MenuPriceContainer>
+            <MenuRow>
+              <Menuimg src={testimg} alt="메뉴 사진" />
+              <MenuPriceContainer>
+                <MenuPrice>수저가 짬뽕</MenuPrice>
+                <MenuPrice>7000 ₩</MenuPrice>
+              </MenuPriceContainer>
+              <Menuimg src={testimg} alt="메뉴 사진" />
+              <MenuPriceContainer>
+                <MenuPrice>수저가 짬뽕</MenuPrice>
+                <MenuPrice>7000 ₩</MenuPrice>
+              </MenuPriceContainer>
+              <Menuimg src={testimg} alt="메뉴 사진" />
+              <MenuPriceContainer>
+                <MenuPrice>수저가 짬뽕</MenuPrice>
+                <MenuPrice>7000 ₩</MenuPrice>
+              </MenuPriceContainer>
+            </MenuRow>
           </MenuInfo>
           <MenuInfo>
-            <Menuimg src={testimg} alt="메뉴 사진" />
-            <MenuPriceContainer>
-              <MenuPrice>수저가 짬뽕</MenuPrice>
-              <MenuPrice>7000 ₩</MenuPrice>
-            </MenuPriceContainer>
-          </MenuInfo>
-          <MenuInfo>
-            <Menuimg src={testimg} alt="메뉴 사진" />
-            <MenuPriceContainer>
-              <MenuPrice>수저가 짬뽕</MenuPrice>
-              <MenuPrice>7000 ₩</MenuPrice>
-            </MenuPriceContainer>
-          </MenuInfo>
-          <MenuInfo>
-            <Menuimg src={testimg} alt="메뉴 사진" />
-            <MenuPriceContainer>
-              <MenuPrice>수저가 짬뽕</MenuPrice>
-              <MenuPrice>7000 ₩</MenuPrice>
-            </MenuPriceContainer>
-          </MenuInfo>
-          <MenuInfo>
-            <Menuimg src={testimg} alt="메뉴 사진" />
-            <MenuPriceContainer>
-              <MenuPrice>수저가 짬뽕</MenuPrice>
-              <MenuPrice>7000 ₩</MenuPrice>
-            </MenuPriceContainer>
-          </MenuInfo>
-          <MenuInfo>
-            <Menuimg src={testimg} alt="메뉴 사진" />
-            <MenuPriceContainer>
-              <MenuPrice>수저가 짬뽕</MenuPrice>
-              <MenuPrice>7000 ₩</MenuPrice>
-            </MenuPriceContainer>
+            <MenuRow>
+              <Menuimg src={testimg} alt="메뉴 사진" />
+              <MenuPriceContainer>
+                <MenuPrice>수저가 짬뽕</MenuPrice>
+                <MenuPrice>7000 ₩</MenuPrice>
+              </MenuPriceContainer>
+              <Menuimg src={testimg} alt="메뉴 사진" />
+              <MenuPriceContainer>
+                <MenuPrice>수저가 짬뽕</MenuPrice>
+                <MenuPrice>7000 ₩</MenuPrice>
+              </MenuPriceContainer>
+              <Menuimg src={testimg} alt="메뉴 사진" />
+              <MenuPriceContainer>
+                <MenuPrice>수저가 짬뽕</MenuPrice>
+                <MenuPrice>7000 ₩</MenuPrice>
+              </MenuPriceContainer>
+            </MenuRow>
           </MenuInfo>
         </MenuBox>
       </Third>
@@ -270,24 +266,35 @@ const DetailReview = styled.div`
 
 const MenuBox = styled(BaseBox)`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   padding-left: 45px;
   padding-top: 53px;
+  height: auto;
+  overflow-x: auto; // 가로스크롤
   border: 1px solid black;
 `;
 
 const MenuInfo = styled.div`
   display: flex;
   width: 350px;
-  height: 188px;
-  margin-right: 35px;
+  height: 170px;
+  margin-right: 20px;
   &:nth-child(3n) {
     margin-right: 0;
   }
-
   border: 1px solid black;
+`;
+
+const MenuRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-bottom: 35px; // 각 줄 사이의 간격
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const MenuPriceContainer = styled.div`
@@ -298,9 +305,9 @@ const MenuPriceContainer = styled.div`
 
 const Menuimg = styled.img`
   display: flex;
-  width: 210px;
-  height: 188px;
-  border: 1pxsolid black;
+  width: 190px;
+  height: 160px;
+  border: 1px solid black;
 `;
 
 const MenuPrice = styled.div`
