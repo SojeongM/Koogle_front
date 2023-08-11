@@ -1,6 +1,6 @@
 import Info from "./Info";
 
-const Main3 = () => {
+const DetailView = () => {
   return (
     <div>
       <Info></Info>;
@@ -8,4 +8,4 @@ const Main3 = () => {
   );
 };
 
-export default Main3;
+export default DetailView;
