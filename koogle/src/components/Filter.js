@@ -1,29 +1,43 @@
 import styled from "styled-components";
 import SearchImg from "../assets/search.png";
 
-const Filter = () => {
+const Filter = ({ showLine = true }) => {
   return (
     <NavBigDiv>
-      <DetailNavDiv>거리순</DetailNavDiv>
+      {showLine ? (
+        <>
+          <DetailNavDiv>거리순</DetailNavDiv>
 
-      <DetailNavDiv>평점순</DetailNavDiv>
+          <DetailNavDiv>평점순</DetailNavDiv>
 
-      <DetailNavDiv>리뷰순</DetailNavDiv>
+          <DetailNavDiv>리뷰순</DetailNavDiv>
 
-      <DetailNavDiv>방문순</DetailNavDiv>
+          <DetailNavDiv>방문순</DetailNavDiv>
+        </>
+      ) : (
+        <>
+          <DetailNavDiv>By Country</DetailNavDiv>
 
-      <NavSearchDiv>
-        <NavTextDiv>search</NavTextDiv>
-        <NavImgDiv>
-          <img src={SearchImg}></img>
-        </NavImgDiv>
-        
-      </NavSearchDiv>
-      <HorizonLine></HorizonLine>
+          <DetailNavDiv>Most Recent</DetailNavDiv>
+
+          <DetailNavDiv>Highest Rated First</DetailNavDiv>
+
+          <DetailNavDiv>Lowest Rated First</DetailNavDiv>
+        </>
+      )}
+
+      {showLine && (
+        <NavSearchDiv>
+          <NavTextDiv>search</NavTextDiv>
+          <NavImgDiv>
+            <img src={SearchImg}></img>
+          </NavImgDiv>
+        </NavSearchDiv>
+      )}
+      {showLine && <HorizonLine />}
     </NavBigDiv>
   );
 };
-
 
 const HorizonLine = () => {
   return (
@@ -40,7 +54,6 @@ const HorizonLine = () => {
   );
 };
 
-
 export default Filter;
 
 export const NavBigDiv = styled.div`
@@ -50,8 +63,6 @@ export const NavBigDiv = styled.div`
   position: relative;
   margin-left: 120px;
   margin-right: 120px;
-  
-  
 `;
 
 export const DetailNavDiv = styled.div`
