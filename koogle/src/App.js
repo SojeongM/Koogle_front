@@ -3,15 +3,20 @@ import "./App.css";
 import Header from "./components/Header";
 import Navigators from "./components/Navigate";
 import Filter from "./components/Filter";
+import Main1 from "./components/Main1";
 import Main2 from "./components/Main2";
-import Main3 from "./components/Main3";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Navigators></Navigators>
-      <Main3></Main3>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Main1 />} />
+          <Route path="/search" element={<Main2 />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

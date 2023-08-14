@@ -10,45 +10,48 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SettingImg from "../assets/setting.png";
 import TestImg from "../assets/testimg.jpg";
-
+import Filter from "./Filter";
 
 const Main2 = () => {
   return (
-    <BigBody>
-      <Store>
-        <BigImg>
-          <img src={TestImg} object-fit="cover"></img>
-        </BigImg>
-        <Details>
-          <First>
-            <Name>Dugahun Restaurant</Name>
-            <Rank>3 Koggle</Rank>
-          </First>
+    <>
+      <Filter/>
+      <BigBody>
+        <Store>
+          <BigImg>
+            <img src={TestImg} object-fit="cover"></img>
+          </BigImg>
+          <Details>
+            <First>
+              <Name>Dugahun Restaurant</Name>
+              <Rank>3 Koggle</Rank>
+            </First>
 
-          <Loc>
-            <FontAwesomeIcon icon={faLocationDot} />
-            &nbsp; Seoul, Jongro- gu, Samcheong-ro 14
-          </Loc>
-          <Call>
-            <FontAwesomeIcon icon={faPhone} />
-            &nbsp;02-1234-5678
-          </Call>
-          <Last>
-            <Distance>
-              <FontAwesomeIcon icon={faPersonWalking} />
-              &nbsp;&nbsp;850m
-            </Distance>
-            <More>
-              see more&nbsp;
-              <FontAwesomeIcon icon={faArrowRight} />
-            </More>
-          </Last>
-        </Details>
-      </Store>
-      <Store></Store>
-      <Store></Store>
-      <Store></Store>
-    </BigBody>
+            <Loc>
+              <FontAwesomeIcon icon={faLocationDot} />
+              &nbsp; Seoul, Jongro- gu, Samcheong-ro 14
+            </Loc>
+            <Call>
+              <FontAwesomeIcon icon={faPhone} />
+              &nbsp;02-1234-5678
+            </Call>
+            <Last>
+              <Distance>
+                <FontAwesomeIcon icon={faPersonWalking} />
+                &nbsp;&nbsp;850m
+              </Distance>
+              <More>
+                see more&nbsp;
+                <FontAwesomeIcon icon={faArrowRight} />
+              </More>
+            </Last>
+          </Details>
+        </Store>
+        <Store></Store>
+        <Store></Store>
+        <Store></Store>
+      </BigBody>
+    </>
   );
 };
 
