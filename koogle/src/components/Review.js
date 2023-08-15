@@ -3,53 +3,182 @@ import Filter from "./Filter";
 import testimg from "../assets/testimg.jpg";
 import profileimg from "../assets/profile.svg";
 import React from "react";
+import { useState } from "react";
+import Header from "./Header";
+import { text } from "@fortawesome/fontawesome-svg-core";
+const reviewDetails = [
+  { icon: "🖼️", text: "Nice Interrior" },
+  { icon: "🍕", text: "Delicious Food" },
+  { icon: "☀️", text: "Nice View" },
+  { icon: "🍷", text: "For Special Day" },
+  { icon: "🥰", text: "Friendly Service" },
+  { icon: "😋", text: "음식이 맛있어요" },
+  { icon: "💖", text: "친절해요" },
+  { icon: "✨", text: "매장이 넓어요" },
+  { icon: "😋", text: "특별한 메뉴가 있어요" },
+];
+const reviews = [
+  {
+    profileImage: profileimg,
+    nickname: "닉네임1",
+    flag: "🇰🇷",
+    rating: 4.3,
+    reviewTime: "1month ago",
+    totalReviews: 105,
+    totalPhotos: 20,
+    reviewText: "리뷰내용~ 어쩌고 저쩌고 맛있었고",
+    reviewPhotos: [testimg, testimg, testimg],
+  },
+  {
+    profileImage: profileimg,
+    nickname: "닉네임2",
+    flag: "🇰🇷",
+    rating: 4.3,
+    reviewTime: "1month ago",
+    totalReviews: 105,
+    totalPhotos: 20,
+    reviewText: "리뷰내용~ 어쩌고 저쩌고 맛있었고",
+    reviewPhotos: [testimg, testimg, testimg],
+  },
+  {
+    profileImage: profileimg,
+    nickname: "닉네임3",
+    flag: "🇺🇸",
+    rating: 4.8,
+    reviewTime: "2weeks ago",
+    totalReviews: 50,
+    totalPhotos: 10,
+    reviewText: "또 다른 리뷰 내용~",
+    reviewPhotos: [testimg],
+  },
+];
+
+const koreanReviews = reviews.filter((review) => review.flag === "🇰🇷");
+const otherReviews = reviews.filter((review) => review.flag !== "🇰🇷");
+
+const ReviewPopup = ({ onClose }) => {
+  const [reviewContent, setReviewContent] = useState("");
+  const [selectedDetails, setSelectedDetails] = useState([]);
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  const handleDetailClick = (text) => {
+    if (selectedDetails.includes(text)) {
+      setSelectedDetails((prev) => prev.filter((item) => item !== text));
+    } else {
+      if (selectedDetails.length < 5) {
+        setSelectedDetails((prev) => [...prev, text]);
+      }
+    }
+  };
+
+  const handleImageChange = (e) => {
+    const selectedFiles = Array.from(e.target.files);
+    const alreadySelectedCount = selectedImages.length;
+
+    const newFileURLs = selectedFiles.map((file) => URL.createObjectURL(file));
+    const totalImages = alreadySelectedCount + newFileURLs.length;
+
+    if (totalImages > 3) {
+      alert("You can upload up to 3 photos.");
+      return;
+    }
+    setSelectedImages((prevImages) => [...prevImages, ...newFileURLs]);
+  };
+
+  const removeImage = (index) => {
+    const newSelectedImages = [...selectedImages];
+    newSelectedImages.splice(index, 1);
+    setSelectedImages(newSelectedImages);
+  };
+
+  return (
+    <PopupOverlay>
+      <PopupContent>
+        <h2>Post Your Review ✍️</h2>
+        <div>
+          {reviewDetails.map((detail) => (
+            <DetailButton
+              key={detail.text}
+              selected={selectedDetails.includes(detail.text)}
+              onClick={() => handleDetailClick(detail.text)}
+            >
+              {detail.icon} {detail.text}
+            </DetailButton>
+          ))}
+        </div>
+
+        <StyledTextarea
+          placeholder="Write a Reviw :)"
+          value={reviewContent}
+          onChange={(e) => setReviewContent(e.target.value)}
+        ></StyledTextarea>
+
+        <div></div>
+        <ImageUploadBtn as="label" htmlFor="imageUpload">
+          📸 Add Photos
+        </ImageUploadBtn>
+        <input
+          type="file"
+          id="imageUpload"
+          style={{ display: "none" }}
+          multiple
+          onChange={handleImageChange}
+        />
+        <ImageUploadContainer>
+          {selectedImages.map((imgURL, index) => (
+            <div
+              key={index}
+              style={{
+                position: "relative",
+                display: "inline-block",
+                margin: "5px",
+              }}
+            >
+              <img
+                src={imgURL}
+                alt="선택한 이미지"
+                style={{ width: "100px", height: "100px" }}
+              />
+              <span
+                style={{
+                  position: "absolute",
+                  right: "0",
+                  top: "0",
+                  cursor: "pointer",
+                }}
+                onClick={() => removeImage(index)}
+              >
+                x
+              </span>
+            </div>
+          ))}
+        </ImageUploadContainer>
+
+        <ButtonContainer>
+          <CancelButton onClick={onClose}>Cancel</CancelButton>
+          <SubmitButton disabled={reviewContent.length < 1}>
+            Submit
+          </SubmitButton>
+        </ButtonContainer>
+      </PopupContent>
+    </PopupOverlay>
+  );
+};
 
 const Review = () => {
-  const reviews = [
-    {
-      profileImage: profileimg,
-      nickname: "닉네임1",
-      flag: "🇰🇷",
-      rating: 4.3,
-      reviewTime: "1month ago",
-      totalReviews: 105,
-      totalPhotos: 20,
-      reviewText: "리뷰내용~ 어쩌고 저쩌고 맛있었고",
-      reviewPhotos: [testimg, testimg, testimg],
-    },
-    {
-      profileImage: profileimg,
-      nickname: "닉네임2",
-      flag: "🇰🇷",
-      rating: 4.3,
-      reviewTime: "1month ago",
-      totalReviews: 105,
-      totalPhotos: 20,
-      reviewText: "리뷰내용~ 어쩌고 저쩌고 맛있었고",
-      reviewPhotos: [testimg, testimg, testimg],
-    },
-    {
-      profileImage: profileimg,
-      nickname: "닉네임3",
-      flag: "🇺🇸",
-      rating: 4.8,
-      reviewTime: "2weeks ago",
-      totalReviews: 50,
-      totalPhotos: 10,
-      reviewText: "또 다른 리뷰 내용~",
-      reviewPhotos: [testimg],
-    },
-  ];
-  const koreanReviews = reviews.filter((review) => review.flag === "🇰🇷");
-  const otherReviews = reviews.filter((review) => review.flag !== "🇰🇷");
+  const [showPopup, setShowPopup] = React.useState(false);
 
   return (
     <>
       <div>
+        <Header></Header>
+        <HorizonLine />
         <InfoBox>
           <ResName>
             Dugahun Restaurant
-            <WriteReviewBtn>✍️Write a Review</WriteReviewBtn>
+            <WriteReviewBtn onClick={() => setShowPopup(true)}>
+              ✍️Write a Review
+            </WriteReviewBtn>
           </ResName>
           <AddressInfo>📍Seoul, Jongro- gu, Samcheong-ro 14</AddressInfo>
           <Ratings>
@@ -127,6 +256,7 @@ const Review = () => {
           </React.Fragment>
         ))}
       </ReviewContainer>
+      {showPopup && <ReviewPopup onClose={() => setShowPopup(false)} />}
     </>
   );
 };
@@ -134,10 +264,10 @@ const Review = () => {
 const InfoBox = styled.div`
   width: 50vw;
   height: 20vh;
-  margin: 50px 0 40px 165px;
-  background-color: #f8f8f8;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  margin: 50px 0 40px 120px;
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+
+  border-radius: 10px;
 `;
 
 const ResName = styled.div`
@@ -184,11 +314,12 @@ const ReviewBox = styled.div`
   width: 40vw;
   height: 23vw;
   margin-top: 30px;
-  margin-left: 100px;
-  background-color: #f8f8f8;
+  margin-left: 0px;
+  
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+
+  border-radius: 10px;
 `;
 
 const Profilepic = styled.img`
@@ -236,7 +367,7 @@ const ReviewContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 0px;
   margin-top: 20px;
-  margin-left: 0px;
+  margin-left: 120px;
 `;
 
 const UserDetails = styled.div`
@@ -245,7 +376,7 @@ const UserDetails = styled.div`
 `;
 
 const ReviewText = styled.p`
-  background-color: #f8f8f8;
+  
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -259,4 +390,124 @@ const Photo = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+const PopupOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const PopupContent = styled.div`
+  width: 40%;
+  height: 70%;
+  padding: 40px;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+`;
+
+const StyledTextarea = styled.textarea`
+  width: 85%;
+  height: 20%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-size: 25px;
+`;
+
+const ImageUploadContainer = styled.div`
+  display: flex;
+  overflow: auto;
+`;
+
+const ImageUploadBtn = styled.label`
+  display: inline-block;
+  width: 60%;
+  height: 3.5%;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  font-size: 20px;
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center; // label 태그에 대한 중앙 정렬을 위해 추가
+  &:hover {
+    background-color: #d4d4d4;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  position: absolute;
+  justify-content: flex-end;
+  top: 600px;
+  left: 840px;
+`;
+
+const SubmitButton = styled.button`
+  position: absolute;
+  right: 20px;
+  padding: 15px 15px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  &:hover {
+    background-color: #e6e6e6;
+  }
+`;
+
+const CancelButton = styled.button`
+  position: absolute;
+  right: 140px;
+  padding: 15px 15px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px; // 버튼 간의 간격
+  font-size: 20px;
+  cursor: pointer;
+  &:hover {
+    background-color: #e6e6e6;
+  }
+`;
+const DetailButton = styled.button`
+  background-color: ${(props) => (props.selected ? "#faddac" : "#f8f8f8")};
+  border: 1px solid #ccc;
+  padding: 8px 18px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${(props) => (props.selected ? "#d4d4d4" : "#faddac")};
+  }
+`;
+
+const HorizonLine = () => {
+  return (
+    <div
+      style={{
+        width: "1680px",
+        textAlign: "center",
+        borderBottom: "2px solid #D9D9D9",
+        lineHeight: "70px",
+        marginLeft: "120px",
+        marginRight: "120px"
+      }}
+    >
+      <span style={{ background: "#fff", padding: "0 0px" }}></span>
+    </div>
+  );
+};
+
 export default Review;

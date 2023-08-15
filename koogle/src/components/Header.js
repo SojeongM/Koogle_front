@@ -3,8 +3,14 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import SettingImg from "../assets/setting.png"
-
+import { useNavigate } from "react-router-dom";
 const Header = () => {
+
+  const navigate = useNavigate();
+  const goSearch = () => {
+    
+    navigate("/");
+  };
     return (
       <HeaderDiv>
         <DetailHeaderDiv>
@@ -12,7 +18,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faLocationDot} />
             &nbsp; Seoul, Jung- gu, Mugyu-ro , 14
           </LocationDiv>
-          <LogoDiv>koogle✈️🍜</LogoDiv>
+          <LogoDiv onClick={goSearch}>koogle✈️🍜</LogoDiv>
 
           <SettingDiv>
             <ImgDiv>
@@ -41,7 +47,7 @@ export const HeaderDiv = styled.div`
 export const DetailHeaderDiv = styled.div`
   
   display: flex;
-  font-size: 20px;
+  font-size: 18px;
 `;
 export const LogoDiv = styled.div`
   width: 560px;

@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import SearchImg from "../assets/search.png"
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Navigators = () => {
 
@@ -13,6 +16,11 @@ const Navigators = () => {
     border: "none",
     outline: "none"
   }
+
+  const navigate = useNavigate();
+  const goSearch = () => {
+    navigate("/search");
+  };
 
   return (
     <NavBigDiv>
@@ -92,7 +100,7 @@ const Navigators = () => {
           />
         </NavTextDiv>
         <NavImgDiv>
-          <img src={SearchImg}></img>{" "}
+          <FontAwesomeIcon icon={faSearch} onClick={goSearch} />
         </NavImgDiv>
       </NavSearchDiv>
     </NavBigDiv>
@@ -110,8 +118,7 @@ export const NavBigDiv = styled.div`
   position: relative;
   margin-left: 120px;
   margin-right: 120px;
-  background-color: #fff6e9;
-  box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.2);
+  border-bottom: 2px solid #D9D9D9;
 `;
 
 export const DetailNavDiv = styled.div`
@@ -120,7 +127,7 @@ export const DetailNavDiv = styled.div`
   float: left;
   text-align: center;
   line-height: 43px;
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 const SmallDetailDiv = styled.div`
@@ -128,7 +135,8 @@ const SmallDetailDiv = styled.div`
   float: left;
   text-align: center;
   line-height: 40px;
-  font-size: 20px;
+  font-size: 18px;
+  color: #D9D9D9;
 `;
 
 
