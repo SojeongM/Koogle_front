@@ -1,5 +1,4 @@
 import logo from "./logo.svg";
-import "./App.css";
 import Header from "./components/Header";
 import Navigators from "./components/Navigate";
 import Filter from "./components/Filter";
@@ -11,7 +10,9 @@ import Info from "./components/Info";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import UseScrollToTop from "./components/UseScrollToTop";
-
+import "./components/Font.css"
+import "./reset.css"
+import "./App.css"
 
 function App() {
   return (
@@ -20,7 +21,6 @@ function App() {
       <Router>
         <UseScrollToTop />
         <Routes>
-         
           <Route path="/" element={<Main1 />} />
           <Route path="/search" element={<Main2 />} />
           <Route path="/info" element={<Info />} />

@@ -31,14 +31,7 @@ const Header = () => {
     );
 
 
-        <SettingDiv>
-          <ImgDiv>
-            <img src={SettingImg}></img>
-          </ImgDiv>
-        </SettingDiv>
-      </DetailHeaderDiv>
-    </HeaderDiv>
-  );
+     
 };
 
 export default Header;
@@ -63,6 +56,7 @@ export const LogoDiv = styled.div`
   float: left;
   margin-top: 10px;
   font-size: 64px;
+  font-family: "GoryeongStrawberry";
 `;
 export const LocationDiv = styled.div`
   width: 560px;
