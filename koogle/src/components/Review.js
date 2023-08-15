@@ -535,7 +535,7 @@ const HorizonLine = () => {
       style={{
         width: "1680px",
         textAlign: "center",
-        borderBottom: "2px solid #D9D9D9",
+        borderBottom: "2px solid #ffa42e",
         lineHeight: "70px",
         marginLeft: "120px",
         marginRight: "120px",
