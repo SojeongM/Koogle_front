@@ -105,7 +105,6 @@ const ReviewPopup = ({ onClose }) => {
               <Star
                 key={index}
                 selected={index < selectedStars}
-                onMouseEnter={() => setSelectedStars(index + 1)}
                 onClick={() => setSelectedStars(index + 1)}
               >
                 ★
@@ -446,10 +445,7 @@ const Star = styled.span`
   font-size: 24px;
   cursor: pointer;
   color: ${(props) => (props.selected ? "#FFD700" : "#ddd")};
-  transition: color 0.3s;
-  &:hover {
-    color: #ffd700;
-  }
+  transition: color 0.2s;
 `;
 
 const StyledTextarea = styled.textarea`

@@ -10,14 +10,17 @@ import Review from "./components/Review";
 import Info from "./components/Info";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import UseScrollToTop from "./components/UseScrollToTop";
 
 
 function App() {
   return (
     <div className="App">
+
       <Router>
+        <UseScrollToTop />
         <Routes>
-          
+         
           <Route path="/" element={<Main1 />} />
           <Route path="/search" element={<Main2 />} />
           <Route path="/info" element={<Info />} />
