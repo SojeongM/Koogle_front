@@ -204,8 +204,6 @@ const Review = () => {
   return (
     <>
       <div>
-  
-
         <HorizonLine />
         <InfoBox>
           <ResName>
@@ -223,6 +221,8 @@ const Review = () => {
         </InfoBox>
       </div>
       <Filter showLine={false} />
+      <Blank />
+      <HorizonLine />
       <ReviewContainer>
         {koreanReviews.map((_, index) => (
           <React.Fragment key={index}>
@@ -302,23 +302,23 @@ const InfoBox = styled.div`
   width: 50vw;
   height: 20vh;
   margin: 40px 0 40px 120px;
-  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+  border: 2px solid #d9d9d9;
 
   border-radius: 10px;
 `;
 
 const ResName = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: space-around;
+
   align-items: center;
   height: 20%;
-  margin-top: 40px;
-  padding: 35px;
+  margin-top: 30px;
+
   font-color: black;
   font-weight: 500;
   font-size: 25px;
   margin-left: 100px;
+
   margin-bottom: 20px;
 `;
 
@@ -328,6 +328,7 @@ const WriteReviewBtn = styled.button`
   padding: 10px 20px;
   font-size: 20px;
   border-radius: 5px;
+  margin-left: 300px;
   cursor: pointer;
   &:hover {
     background-color: #e6e6e6;
@@ -352,13 +353,12 @@ const Ratings = styled.span`
 `;
 
 const ReviewBox = styled.div`
-  width: 40vw;
-  height: 23vw;
-  margin-top: 40px;
-  margin-left: 0px;
-
+  width: 820px;
+  height: auto;
+  margin-top: 20px;
+  margin-right: 40px;
   padding: 20px;
-  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+  border: 2px solid #d9d9d9;
 
   border-radius: 10px;
 `;
@@ -412,8 +412,9 @@ const ReviewContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 120px;
+  margin-right: 120px;
 `;
 
 const UserDetails = styled.div`
@@ -513,7 +514,7 @@ const ButtonContainer = styled.div`
   display: flex;
   position: absolute;
   justify-content: flex-end;
-  top: 570px;
+  top: 530px;
   left: 780px;
 `;
 
@@ -556,6 +557,10 @@ const DetailButton = styled.button`
   &:hover {
     background-color: ${(props) => (props.selected ? "#d4d4d4" : "#faddac")};
   }
+`;
+
+const Blank = styled.div`
+  height: 10px;
 `;
 
 const HorizonLine = () => {

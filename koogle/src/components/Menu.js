@@ -31,12 +31,15 @@ function Menu() {
 }
 
 const MenuContainer = styled.div`
-  padding: 10px;
+  border: 2px solid #d9d9d9;
+  border-radius: 10px;
+  margin-bottom: 20px;
 `;
 const MenuTitle = styled.h2`
   text-align: center;
   font-size: 40px;
   font-weight: bold;
+  margin-top: 20px;
   margin-bottom: 20px;
 `;
 
@@ -44,6 +47,7 @@ const MenuWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
+  
 `;
 
 const MenuItem = styled.div`

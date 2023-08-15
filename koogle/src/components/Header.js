@@ -15,7 +15,7 @@ const Header = () => {
           &nbsp; Seoul, Jung- gu, Mugyu-ro , 14
         </LocationDiv>
         <Link to={"/"}>
-          <LogoDiv>koogle✈️🍜</LogoDiv>
+          <LogoDiv>YummySmile</LogoDiv>
         </Link>
 
         <SettingDiv>
@@ -45,12 +45,13 @@ export const DetailHeaderDiv = styled.div`
   font-size: 18px;
 `;
 export const LogoDiv = styled.div`
+  font-family: "LOTTERIACHAB";
+
   width: 560px;
-  font-weight: bold;
   float: left;
-  margin-top: 10px;
+  margin-top: 30px;
   font-size: 64px;
-  font-family: "GoryeongStrawberry";
+  color: #ffa42e;
 `;
 export const LocationDiv = styled.div`
   width: 560px;

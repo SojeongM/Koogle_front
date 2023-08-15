@@ -90,13 +90,13 @@ const Info = () => {
 
       <CustomerReviews />
 
-      <MenuDisplay>
-        <MenuBox width="1563px" height="517px" marginLeft="160px">
-          <MenuInfo>
+      
+        <MenuBox width="1590px" marginLeft="150px">
+          <MenuInfo/>
             <Menu />
-          </MenuInfo>
+          
         </MenuBox>
-      </MenuDisplay>
+  
     </>
   );
 };
@@ -107,11 +107,6 @@ const OverViews = styled.div`
   margin-top: 40px;
 `;
 
-const MenuDisplay = styled.div`
-  display: flex;
-  padding-top: 5px;
-`;
-
 const BaseBox = styled.div`
   width: ${({ width }) => width};
   height: ${(props) => props.height};
@@ -120,8 +115,8 @@ const BaseBox = styled.div`
 `;
 
 const InfoBox = styled(BaseBox)`
-  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
-
+  border: 2px solid #d9d9d9;
+  
   border-radius: 10px;
   padding-top: 0px;
   display: flex;
@@ -222,8 +217,9 @@ const ReservationButton = styled.button`
   cursor: pointer;
   border-radius: 10px;
   border: 0px;
-
-  background-color: ${({ available }) => (available ? "#ffeccf" : "#d4d4d4")};
+  color: white;
+  font-weight: bold;
+  background-color: ${({ available }) => (available ? "#ffa42e" : "#d4d4d4")};
   cursor: ${({ available }) => (available ? "pointer" : "default")};
 `;
 
@@ -231,7 +227,7 @@ const MapBox = styled(BaseBox)`
   margin-left: 60px;
   width: 480px;
   height: 450px;
-  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+  border: 2px solid #d9d9d9;
 
   border-radius: 10px;
 `;
@@ -240,15 +236,17 @@ const MenuBox = styled(BaseBox)`
   display: flex;
   flex-direction: column;
   align-items: start;
+  
   padding-left: 30px;
-  height: auto;
+  
 `;
 
 const MenuInfo = styled.div`
   display: flex;
   flex-direction: row;
   width: auto;
-  height: 300px;
+  margin-top: 20px;
   margin-right: 20px;
+  
 `;
 export default Info;

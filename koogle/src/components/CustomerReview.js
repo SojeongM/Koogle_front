@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
 import testimg from "../assets/testimg.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const reviewDetails = [
   { icon: "🖼️", text: "Nice Interrior", count: 113 },
@@ -21,7 +23,7 @@ const CustomerReviews = () => {
   };
   return (
     <ReviewsContainer>
-      <ReviewBox width="1563px" height="280px" marginLeft="0px">
+      <ReviewBox width="1560px" height="280px" marginLeft="50px">
         <PhotoReviews onClick={goSearch}>
           <ReviewPhoto src={testimg} alt="리뷰 사진"></ReviewPhoto>
           <ReviewPhoto src={testimg} alt="리뷰 사진"></ReviewPhoto>
@@ -29,7 +31,11 @@ const CustomerReviews = () => {
             src={testimg}
             alt="리뷰 사진"
             className="last"
+            style={{ position: "relative" }}
           ></ReviewPhoto>
+          <CheckImg>
+            <FontAwesomeIcon icon={faPlus} style={{ fontSize: "30px" }} />
+          </CheckImg>
         </PhotoReviews>
 
         <NaverReview>
@@ -52,24 +58,35 @@ const CustomerReviews = () => {
               </DetailReview>
             ))}
           </EmojiReviewContainer>
-
-          <span
-            onClick={goSearch}
-            style={{ cursor: "pointer", alignSelf: "flex-end" }}
-          >
-            See more Review
-          </span>
         </NaverReview>
+
+        <span
+          onClick={goSearch}
+          style={{
+            cursor: "pointer",
+            alignSelf: "flex-end",
+            textDecoration: "underline",
+            marginBottom: "20px"
+          }}
+        >
+          See more Review
+        </span>
       </ReviewBox>
     </ReviewsContainer>
   );
 };
 const ReviewsContainer = styled.div`
-  display: flex;
   justify-content: center; // 자식 요소들을 가로 방향 중앙에 위치시킴
   align-items: center; // 자식 요소들을 세로 방향 중앙에 위치시킴
   padding: 20px; // 컨테이너 내부의 여백
-  margin: 20px 0 0 0px; // 컨테이너 외부의 상하 여백
+  margin: 20px 0 0 110px; // 컨테이너 외부의 상하 여백
+`;
+
+const CheckImg = styled.div`
+  position: absolute;
+
+  top: 97%;
+  left: 35.7%;
 `;
 
 const BaseBox = styled.div`
@@ -80,7 +97,7 @@ const BaseBox = styled.div`
 `;
 const ReviewBox = styled(BaseBox)`
   display: flex;
-  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+  border: 2px solid #d9d9d9;
 
   border-radius: 10px;
   border-radius: 8px; // 모서리 둥글게, 필요에 따라 조절 가능
@@ -98,7 +115,7 @@ const ReviewPhoto = styled.img`
   width: 185px;
   height: 190px;
   &.last {
-    opacity: 0.6;
+    opacity: 0.4;
 
     ::after {
       content: "+";
@@ -116,16 +133,23 @@ const ReviewPhoto = styled.img`
 const EmojiReviewContainer = styled.div``;
 const EmojiTitle = styled.div`
   font-size: 20px;
+  height: 30px;
+  text-align: center;
+  border-radius: 10px;
+  line-height: 25px;
+  width: 180px;
   margin-top: 15px;
   margin-bottom: 20px;
+  background-color: #ffa42e;
+  color: white;
 `;
 const NaverReview = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 337px;
+  width: 300px;
   height: 202px;
-  margin: 20px 40px;
+  margin: 20px 20px 20px 0;
 `;
 
 const DetailReview = styled.div`
