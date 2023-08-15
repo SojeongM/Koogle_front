@@ -54,6 +54,8 @@ import ca_6 from "../assets/ca_6.jpg";
 import Navigators from "./Navigate";
 import { useNavigate } from "react-router-dom";
 
+import Header from "./Header";
+
 const Main1 = () => {
   const krimg = [
     kr_1,
@@ -292,6 +294,7 @@ const Main1 = () => {
 
   return (
     <>
+      <Header></Header>
       <Navigators />
       <BigDiv>
         <BigBody>
@@ -332,7 +335,7 @@ const Main1 = () => {
             })}
           </BigFood>
         </BigBody>
-        <HorizonLine></HorizonLine>
+
         <BigBody>
           <Category>Western-style Food</Category>
           <BigFood>
@@ -371,7 +374,6 @@ const Main1 = () => {
             })}
           </BigFood>
         </BigBody>
-        <HorizonLine></HorizonLine>
 
         <BigBody>
           <Category>Japanese-style Food</Category>
@@ -411,7 +413,7 @@ const Main1 = () => {
             })}
           </BigFood>
         </BigBody>
-        <HorizonLine></HorizonLine>
+
         <BigBody>
           <Category>Chinese-style Food</Category>
           <BigFood>
@@ -450,7 +452,7 @@ const Main1 = () => {
             })}
           </BigFood>
         </BigBody>
-        <HorizonLine></HorizonLine>
+
         <BigBody>
           <Category>cafe</Category>
           <BigFood>
@@ -489,7 +491,7 @@ const Main1 = () => {
             })}
           </BigFood>
         </BigBody>
-        <HorizonLine></HorizonLine>
+
         <BigBody>
           <Category>others</Category>
           <BigFood>
@@ -548,12 +550,13 @@ const BigBody = styled.div`
 `;
 
 const Category = styled.div`
-  height: 45px;
-  width: 280px;
-
+  height: 40px;
+  width: 230px;
+  font-weight:500;
   background-color: #ffeccf;
-  font-size: 20px;
-  line-height: 42px;
+  font-size: 18px;
+  line-height: 40px;
+  border-radius: 30px;
   margin-left: 5px;
   
 `;
@@ -562,7 +565,9 @@ const BigFood = styled.div`
   height: 310px;
   width: 1680px;
   white-space: nowrap; // 가로 스크롤의 핵심
-
+  border: 2px solid #D9D9D9;
+  margin-top: 10px;
+  border-radius: 20px;
   overflow-y: scroll;
   display: flex;
   &::-webkit-scrollbar {
@@ -574,8 +579,9 @@ const FoodDiv = styled.div`
   height: 240px;
   width: 300px;
 
-  margin-top: 20px;
-  margin-right: 30px;
+  margin-top: 40px;
+  margin-right: 20px;
+  margin-left: 10px;
   display: inline-block;
   margin-bottom: 10px;
   float: left;
@@ -588,6 +594,7 @@ const FoodImg = styled.button`
   outline: 0;
   background-color: white;
   position: relative;
+  
   &:hover img {
     transform: scale(1.05);
     opacity: 0.2;
@@ -605,6 +612,7 @@ const FoodImg = styled.button`
 
 const DetailImg = styled.img`
   transition: all 0.2s linear;
+  border-radius: 20px;
   &.select {
   }
   &.not_select {
@@ -642,14 +650,14 @@ const HorizonLine = () => {
 };
 
 const NextStep = styled.button`
-  position: fixed;
-  font-size: 20px;
+  margin: 10px 0 40px 0;
+  font-size: 18px;
   bottom: 30px;
   width: 10%;
-  height: 5%;
+  height: 50px;
   margin: 0, auto;
   border: 0;
   background-color: #ffeccf;
-  border-radius: 8px;
-  
+  font-weight: 500;
+  border-radius: 20px;
 `;

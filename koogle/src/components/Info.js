@@ -6,6 +6,10 @@ import Menu from "./Menu";
 import CustomerReviews from "./CustomerReview";
 import Navigators from "./Navigate";
 
+import { useNavigate } from "react-router";
+import Header from "./Header";
+
+
 const Operating_Hours = [
   "Mon 12:00 - 22: 00",
   "Tue 12:00 - 22: 00",
@@ -40,8 +44,10 @@ const OpeningInfoList = ({ hoursList }) => {
 };
 
 const Info = () => {
+
   return (
     <>
+      <Header></Header>
       <Navigators />
       <OverViews>
         <InfoBox width="1020px" height="450px" marginLeft="180px">
@@ -103,9 +109,12 @@ const BaseBox = styled.div`
 `;
 
 const InfoBox = styled(BaseBox)`
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+
+  border-radius: 10px;
   padding-top: 0px;
   display: flex;
-  border: 1px solid black;
+  
 `;
 
 const ImageBox = styled.img`
@@ -207,7 +216,9 @@ const MapBox = styled(BaseBox)`
   margin-left: 60px;
   width: 480px;
   height: 450px;
-  border: 1px solid black;
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+
+  border-radius: 10px;
 `;
 
 const MenuBox = styled(BaseBox)`

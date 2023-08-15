@@ -12,6 +12,7 @@ import SettingImg from "../assets/setting.png";
 import TestImg from "../assets/testimg.jpg";
 import Filter from "./Filter";
 import { useNavigate } from "react-router";
+import Header from "./Header";
 
 const Main2 = () => {
   const navigate = useNavigate();
@@ -21,7 +22,8 @@ const Main2 = () => {
   };
   return (
     <>
-      <Filter/>
+      <Header></Header>
+      <Filter />
       <BigBody>
         <Store>
           <BigImg>
@@ -66,28 +68,31 @@ export default Main2;
 export const BigBody = styled.div`
   width: 1680px;
   height: auto;
-
+  cursor: default;
   position: relative;
   margin-left: 120px;
   margin-top: 50px;
   margin-right: 120px;
-  
 `;
 
 const Store = styled.div`
   width: 770px;
   height: 230px;
   margin: 50px auto;
-  box-shadow: 3px 3px 3px 3px rgb(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+
+  border-radius: 10px;
   position: relative;
 `;
 
 const BigImg = styled.div`
   position: absolute;
-  
+
   width: 230px;
   height: 100%;
   overflow: hidden;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
 `;
 
 const Details = styled.div`
