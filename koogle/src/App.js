@@ -20,9 +20,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Main1 />} />
           <Route path="/search" element={<Main2 />} />
+          <Route path="/info" element={<Info />} />
+          <Route path="/review" element={<Review />} />
         </Routes>
       </Router>
-
     </div>
   );
 }

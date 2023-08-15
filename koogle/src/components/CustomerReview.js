@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router";
 import testimg from "../assets/testimg.jpg";
 
 const reviewDetails = [
@@ -11,10 +12,15 @@ const reviewDetails = [
 ];
 
 const CustomerReviews = () => {
+  const navigate = useNavigate();
+  const goSearch = () => {
+ 
+    navigate("/review");
+  };
   return (
     <ReviewsContainer>
       <ReviewBox width="1563px" height="280px" marginLeft="60px">
-        <PhotoReviews>
+        <PhotoReviews onClick={goSearch}>
           <ReviewPhoto src={testimg} alt="리뷰 사진"></ReviewPhoto>
           <ReviewPhoto src={testimg} alt="리뷰 사진"></ReviewPhoto>
           <ReviewPhoto
@@ -36,7 +42,7 @@ const CustomerReviews = () => {
               {review.icon} {review.text} {review.count}
             </DetailReview>
           ))}
-          See more Review
+          <span onClick={goSearch}>See more Review</span>
         </NaverReview>
       </ReviewBox>
     </ReviewsContainer>

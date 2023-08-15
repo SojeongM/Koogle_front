@@ -4,6 +4,8 @@ import testimg from "../assets/testimg.jpg";
 import phoneimg from "../assets/phone.png";
 import Menu from "./Menu";
 import CustomerReviews from "./CustomerReview";
+import Navigators from "./Navigate";
+import { useNavigate } from "react-router";
 
 const Operating_Hours = [
   "Mon 12:00 - 22: 00",
@@ -39,8 +41,14 @@ const OpeningInfoList = ({ hoursList }) => {
 };
 
 const Info = () => {
+  const navigate = useNavigate();
+  const goSearch = () => {
+
+    navigate("/review");
+  };
   return (
     <>
+      <Navigators/>
       <OverViews>
         <InfoBox width="1020px" height="450px" marginLeft="180px">
           <ImageBox src={storeData.image} alt="restaurant pic" />
