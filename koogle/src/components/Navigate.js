@@ -119,7 +119,7 @@ export const NavBigDiv = styled.div`
   margin-left: 120px;
   margin-right: 120px;
   background-color: #fff6e9;
-  box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 3px rgb(0, 0, 0, 0.2);
 `;
 
 export const DetailNavDiv = styled.div`

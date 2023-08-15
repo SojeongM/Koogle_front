@@ -555,7 +555,7 @@ const Category = styled.div`
   font-size: 20px;
   line-height: 42px;
   margin-left: 5px;
-  box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.1);
+  
 `;
 
 const BigFood = styled.div`
@@ -648,7 +648,7 @@ const NextStep = styled.button`
   width: 10%;
   height: 5%;
   margin: 0, auto;
-  
+  border: 0;
   background-color: #ffeccf;
   border-radius: 8px;
   
