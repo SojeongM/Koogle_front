@@ -5,7 +5,6 @@ import phoneimg from "../assets/phone.png";
 import Menu from "./Menu";
 import CustomerReviews from "./CustomerReview";
 import Navigators from "./Navigate";
-import { useNavigate } from "react-router";
 
 const Operating_Hours = [
   "Mon 12:00 - 22: 00",
@@ -41,10 +40,6 @@ const OpeningInfoList = ({ hoursList }) => {
 };
 
 const Info = () => {
-  const navigate = useNavigate();
-  const goSearch = () => {
-    navigate("/review");
-  };
   return (
     <>
       <Navigators />
@@ -79,7 +74,7 @@ const Info = () => {
 
       <CustomerReviews />
       <MenuDisplay>
-        <MenuBox width="1563px" height="517px" marginLeft="180px">
+        <MenuBox width="1563px" height="517px" marginLeft="160px">
           <MenuInfo>
             <Menu />
           </MenuInfo>
@@ -92,7 +87,7 @@ const Info = () => {
 const OverViews = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 80px;
+  margin-top: 40px;
 `;
 
 const MenuDisplay = styled.div`
@@ -219,8 +214,7 @@ const MenuBox = styled(BaseBox)`
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding-left: 45px;
-  padding-top: 53px;
+  padding-left: 30px;
   height: auto;
 `;
 
@@ -228,8 +222,7 @@ const MenuInfo = styled.div`
   display: flex;
   flex-direction: row;
   width: auto;
-  overflow-x: auto;
   height: 300px;
-  margin-right: 0px;
+  margin-right: 20px;
 `;
 export default Info;

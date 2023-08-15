@@ -91,10 +91,30 @@ const ReviewPopup = ({ onClose }) => {
     setSelectedImages(newSelectedImages);
   };
 
+  const [selectedStars, setSelectedStars] = useState(0);
+
   return (
     <PopupOverlay>
       <PopupContent>
         <h2>Post Your Review ✍️</h2>
+        <StarBox>
+          <h3>How was your food?</h3>
+          {Array(5)
+            .fill(0)
+            .map((_, index) => (
+              <Star
+                key={index}
+                selected={index < selectedStars}
+                onMouseEnter={() => setSelectedStars(index + 1)}
+                onClick={() => setSelectedStars(index + 1)}
+              >
+                ★
+              </Star>
+            ))}
+        </StarBox>
+
+        {/*  */}
+
         <div>
           {reviewDetails.map((detail) => (
             <DetailButton
@@ -108,7 +128,7 @@ const ReviewPopup = ({ onClose }) => {
         </div>
 
         <StyledTextarea
-          placeholder="Write a Reviw :)"
+          placeholder="Write a Review :)"
           value={reviewContent}
           onChange={(e) => setReviewContent(e.target.value)}
         ></StyledTextarea>
@@ -171,7 +191,7 @@ const Review = () => {
   return (
     <>
       <div>
-        <HorizonLine/>
+        <HorizonLine />
         <InfoBox>
           <ResName>
             Dugahun Restaurant
@@ -410,6 +430,24 @@ const PopupContent = styled.div`
   position: relative;
 `;
 
+const StarBox = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 200px;
+
+  gap: 5px;
+`;
+
+const Star = styled.span`
+  font-size: 24px;
+  cursor: pointer;
+  color: ${(props) => (props.selected ? "#FFD700" : "#ddd")};
+  transition: color 0.3s;
+  &:hover {
+    color: #ffd700;
+  }
+`;
+
 const StyledTextarea = styled.textarea`
   width: 85%;
   height: 20%;
@@ -500,7 +538,7 @@ const HorizonLine = () => {
         borderBottom: "2px solid #D9D9D9",
         lineHeight: "70px",
         marginLeft: "120px",
-        marginRight: "120px"
+        marginRight: "120px",
       }}
     >
       <span style={{ background: "#fff", padding: "0 0px" }}></span>
