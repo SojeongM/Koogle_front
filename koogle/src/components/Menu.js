@@ -51,6 +51,7 @@ const MenuItem = styled.div`
   min-width: 25%;
   box-sizing: border-box;
   padding: 5px;
+  text-align: center;
 `;
 
 const MenuImage = styled.img`

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faArrowRight,
+  faArrowRight,
   faLocationCrosshairs,
   faLocationDot,
   faPersonWalking,
@@ -12,17 +12,14 @@ import SettingImg from "../assets/setting.png";
 import TestImg from "../assets/testimg.jpg";
 import Filter from "./Filter";
 import { useNavigate } from "react-router";
-import Header from "./Header";
 
 const Main2 = () => {
   const navigate = useNavigate();
   const goSearch = () => {
-
     navigate("/info");
   };
   return (
     <>
-      <Header></Header>
       <Filter />
       <BigBody>
         <Store>
@@ -97,13 +94,12 @@ const BigImg = styled.div`
 
 const Details = styled.div`
   position: absolute;
-  margin-left:230px;
+  margin-left: 230px;
   height: 100%;
   width: 540px;
   font-size: 18px;
 
   text-align: left;
-  
 `;
 
 const First = styled.div`
@@ -120,13 +116,12 @@ const Rank = styled.div`
   font-size: 24px;
   margin-bottom: 20px;
   color: red;
-
 `;
 
 const Loc = styled.div`
   margin-left: 30px;
   margin-bottom: 20px;
-  color: #585555;;
+  color: #585555;
 `;
 
 const Call = styled.div`
@@ -146,4 +141,3 @@ const More = styled.div`
   float: right;
   margin-right: 30px;
 `;
-

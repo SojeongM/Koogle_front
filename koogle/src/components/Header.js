@@ -3,35 +3,29 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
-import SettingImg from "../assets/setting.png"
-import { useNavigate } from "react-router-dom";
+import SettingImg from "../assets/setting.png";
+import { Link } from "react-router-dom";
+
 const Header = () => {
+  return (
+    <HeaderDiv>
+      <DetailHeaderDiv>
+        <LocationDiv>
+          <FontAwesomeIcon icon={faLocationDot} />
+          &nbsp; Seoul, Jung- gu, Mugyu-ro , 14
+        </LocationDiv>
+        <Link to={"/"}>
+          <LogoDiv>koogle✈️🍜</LogoDiv>
+        </Link>
 
-  const navigate = useNavigate();
-  const goSearch = () => {
-    
-    navigate("/");
-  };
-    return (
-      <HeaderDiv>
-        <DetailHeaderDiv>
-          <LocationDiv>
-            <FontAwesomeIcon icon={faLocationDot} />
-            &nbsp; Seoul, Jung- gu, Mugyu-ro , 14
-          </LocationDiv>
-          <LogoDiv onClick={goSearch}>koogle✈️🍜</LogoDiv>
-
-          <SettingDiv>
-            <ImgDiv>
-              <img src={SettingImg}></img>
-            </ImgDiv>
-          </SettingDiv>
-        </DetailHeaderDiv>
-      </HeaderDiv>
-    );
-
-
-     
+        <SettingDiv>
+          <ImgDiv>
+            <img src={SettingImg}></img>
+          </ImgDiv>
+        </SettingDiv>
+      </DetailHeaderDiv>
+    </HeaderDiv>
+  );
 };
 
 export default Header;

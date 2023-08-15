@@ -4,7 +4,7 @@ import testimg from "../assets/testimg.jpg";
 import profileimg from "../assets/profile.svg";
 import React from "react";
 import { useState } from "react";
-import Header from "./Header";
+
 import { text } from "@fortawesome/fontawesome-svg-core";
 const reviewDetails = [
   { icon: "🖼️", text: "Nice Interrior" },
@@ -17,10 +17,15 @@ const reviewDetails = [
   { icon: "✨", text: "매장이 넓어요" },
   { icon: "😋", text: "특별한 메뉴가 있어요" },
 ];
+const selectedReviewDetails = [
+  { icon: "🖼️", text: "Nice Interrior" },
+  { icon: "🍕", text: "Delicious Food" },
+  { icon: "☀️", text: "Nice View" },
+];
 const reviews = [
   {
     profileImage: profileimg,
-    nickname: "닉네임1",
+    nickname: "Anonymus",
     flag: "🇰🇷",
     rating: 4.3,
     reviewTime: "1month ago",
@@ -31,7 +36,7 @@ const reviews = [
   },
   {
     profileImage: profileimg,
-    nickname: "닉네임2",
+    nickname: "Anonymus",
     flag: "🇰🇷",
     rating: 4.3,
     reviewTime: "1month ago",
@@ -96,9 +101,21 @@ const ReviewPopup = ({ onClose }) => {
   return (
     <PopupOverlay>
       <PopupContent>
-        <h2>Post Your Review ✍️</h2>
+        <h2
+          style={{ fontSize: "30px", fontWeight: "700", marginBottom: "20px" }}
+        >
+          Post Your Review ✍️
+        </h2>
+
         <StarBox>
-          <h3>How was your food?</h3>
+          <h3
+            style={{
+              fontSize: "20px",
+              marginRight: "12px",
+            }}
+          >
+            How was your food?
+          </h3>
           {Array(5)
             .fill(0)
             .map((_, index) => (
@@ -111,9 +128,6 @@ const ReviewPopup = ({ onClose }) => {
               </Star>
             ))}
         </StarBox>
-
-        {/*  */}
-
         <div>
           {reviewDetails.map((detail) => (
             <DetailButton
@@ -190,8 +204,7 @@ const Review = () => {
   return (
     <>
       <div>
-
-        <Header></Header>
+  
 
         <HorizonLine />
         <InfoBox>
@@ -201,6 +214,7 @@ const Review = () => {
               ✍️Write a Review
             </WriteReviewBtn>
           </ResName>
+
           <AddressInfo>📍Seoul, Jongro- gu, Samcheong-ro 14</AddressInfo>
           <Ratings>
             🌟 <RatingValue> 4.52</RatingValue>
@@ -225,14 +239,13 @@ const Review = () => {
                       {koreanReviews[index].flag}{" "}
                       {koreanReviews[index].nickname}
                     </NickName>
-                    <RatingInfo>
-                      ⭐ {koreanReviews[index].rating}{" "}
-                      <TimeSpan>{koreanReviews[index].reviewTime}</TimeSpan>
-                    </RatingInfo>
-                    <UserDetails>
-                      {koreanReviews[index].totalReviews} Reviews |{" "}
-                      {koreanReviews[index].totalPhotos} Photos
-                    </UserDetails>
+                    <div>
+                      {selectedReviewDetails.map((detail) => (
+                        <DetailButton key={detail.text}>
+                          {detail.icon} {detail.text}
+                        </DetailButton>
+                      ))}
+                    </div>
                   </UserInfo>
                 </Photo>
                 <ReviewText>{koreanReviews[index].reviewText}</ReviewText>
@@ -260,10 +273,13 @@ const Review = () => {
                       ⭐ {otherReviews[index].rating}{" "}
                       <TimeSpan>{otherReviews[index].reviewTime}</TimeSpan>
                     </RatingInfo>
-                    <UserDetails>
-                      {otherReviews[index].totalReviews} Reviews |{" "}
-                      {otherReviews[index].totalPhotos} Photos
-                    </UserDetails>
+                    <div>
+                      {selectedReviewDetails.map((detail) => (
+                        <DetailButton key={detail.text}>
+                          {detail.icon} {detail.text}
+                        </DetailButton>
+                      ))}
+                    </div>
                   </UserInfo>
                 </Photo>
                 <ReviewText>{otherReviews[index].reviewText}</ReviewText>
@@ -285,7 +301,7 @@ const Review = () => {
 const InfoBox = styled.div`
   width: 50vw;
   height: 20vh;
-  margin: 50px 0 40px 120px;
+  margin: 40px 0 40px 120px;
   box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
 
   border-radius: 10px;
@@ -297,11 +313,12 @@ const ResName = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 20%;
-  margin-top: 20px;
+  margin-top: 40px;
+  padding: 35px;
   font-color: black;
   font-weight: 500;
-  font-size: 27px;
-  margin-left: 0px;
+  font-size: 25px;
+  margin-left: 100px;
   margin-bottom: 20px;
 `;
 
@@ -309,6 +326,7 @@ const WriteReviewBtn = styled.button`
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   padding: 10px 20px;
+  font-size: 20px;
   border-radius: 5px;
   cursor: pointer;
   &:hover {
@@ -318,7 +336,8 @@ const WriteReviewBtn = styled.button`
 
 const AddressInfo = styled.div`
   display: flex;
-  margin-left: 60px;
+  margin-left: 100px;
+  font-size: 20px;
 `;
 
 const RatingValue = styled.span`
@@ -328,16 +347,17 @@ const RatingValue = styled.span`
 const Ratings = styled.span`
   display: flex;
   margin-top: 15px;
-  margin-left: 60px;
+  margin-left: 100px;
+  font-size: 20px;
 `;
 
 const ReviewBox = styled.div`
   width: 40vw;
   height: 23vw;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-left: 0px;
-  
-  padding: 10px;
+
+  padding: 20px;
   box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
 
   border-radius: 10px;
@@ -349,6 +369,7 @@ const Profilepic = styled.img`
   height: 40px;
   margin-top: 10px;
   margin-left: 30px;
+  margin-right: 30px;
 `;
 
 const PhotoReview = styled.img`
@@ -372,15 +393,19 @@ const UserInfo = styled.div`
 const NickName = styled.div`
   display: flex;
   font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 5px;
 `;
 
 const RatingInfo = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 5px;
 `;
 
 const TimeSpan = styled.span`
   margin-left: 10px;
+  font-size: 15px;
 `;
 
 const ReviewContainer = styled.div`
@@ -394,10 +419,11 @@ const ReviewContainer = styled.div`
 const UserDetails = styled.div`
   font-size: 0.8em;
   color: grey;
+  margin-top: 5px;
+  margin-bottom: 5px;
 `;
 
 const ReviewText = styled.p`
-  
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -410,6 +436,7 @@ const PhotoReviewBox = styled.div`
 const Photo = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: 20px;
 `;
 
 const PopupOverlay = styled.div`
@@ -427,18 +454,19 @@ const PopupOverlay = styled.div`
 const PopupContent = styled.div`
   width: 40%;
   height: 70%;
-  padding: 40px;
+  padding: 25px;
   background: white;
   border-radius: 10px;
   position: relative;
+  text-align: center;
 `;
 
 const StarBox = styled.div`
   display: flex;
   align-items: center;
   margin-left: 200px;
-
-  gap: 5px;
+  margin-bottom: 10px;
+  gap: 3px;
 `;
 
 const Star = styled.span`
@@ -449,7 +477,7 @@ const Star = styled.span`
 `;
 
 const StyledTextarea = styled.textarea`
-  width: 85%;
+  width: 90%;
   height: 20%;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -464,11 +492,11 @@ const ImageUploadContainer = styled.div`
 
 const ImageUploadBtn = styled.label`
   display: inline-block;
-  width: 60%;
-  height: 3.5%;
-  margin-top: 15px;
+  width: 50%;
+  height: 6.5%;
+  margin-top: 20px;
   margin-left: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   padding: 10px 15px;
   font-size: 20px;
   background-color: #e6e6e6;
@@ -485,13 +513,13 @@ const ButtonContainer = styled.div`
   display: flex;
   position: absolute;
   justify-content: flex-end;
-  top: 600px;
-  left: 840px;
+  top: 570px;
+  left: 780px;
 `;
 
 const SubmitButton = styled.button`
   position: absolute;
-  right: 20px;
+  right: 40px;
   padding: 15px 15px;
   background-color: #f8f8f8;
   border: 1px solid #ccc;
@@ -519,8 +547,9 @@ const CancelButton = styled.button`
 `;
 const DetailButton = styled.button`
   background-color: ${(props) => (props.selected ? "#faddac" : "#f8f8f8")};
+  margin-top: 10px;
   border: 1px solid #ccc;
-  padding: 8px 18px;
+  padding: 6px 15px;
   font-size: 18px;
   border-radius: 5px;
   cursor: pointer;

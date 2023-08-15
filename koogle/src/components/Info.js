@@ -7,19 +7,28 @@ import CustomerReviews from "./CustomerReview";
 import Navigators from "./Navigate";
 
 import { useNavigate } from "react-router";
-import Header from "./Header";
 
+const Operating_Hours = {
+  Mon: "12:00 - 22: 00",
+  Tue: "12:00 - 22: 00",
+  Wed: "12:00 - 22: 00",
+  Thur: "12:00 - 22: 00",
+  Fri: "12:00 - 22: 00",
+  Sat: "12:00 - 22: 00",
+  Sun: "closed",
+};
 
-const Operating_Hours = [
-  "Mon 12:00 - 22: 00",
-  "Tue 12:00 - 22: 00",
-  "Wed 12:00 - 22: 00",
-  "Thur 12:00 - 22: 00",
-  "Fri 12:00 - 22: 00",
-  "Sat 12:00 - 22: 00",
-  "Sun : closed",
-];
 const storeData = {
+  hours: [
+    { hour: "12:00 - 22: 00", day: "Mon" },
+    { hour: "12:00 - 22: 00", day: "Tue" },
+    { hour: "12:00 - 22: 00", day: "Wed" },
+    { hour: "12:00 - 22: 00", day: "Thr" },
+    { hour: "12:00 - 22: 00", day: "Fri" },
+    { hour: "12:00 - 22: 00", day: "Sat" },
+    { hour: "closed", day: "Sun" },
+  ],
+
   image: testimg,
   name: "DugaHun Restraurant",
   category: "#Italian",
@@ -29,7 +38,6 @@ const storeData = {
     number: "02-1234-5678",
   },
   address: "📍Seoul, Jongro- gu, Samcheong-ro 14",
-  hours: Operating_Hours,
   reservation: true,
 };
 
@@ -37,17 +45,17 @@ const OpeningInfoList = ({ hoursList }) => {
   return (
     <>
       {hoursList.map((hours, index) => (
-        <OpeningInfo key={index}>{hours}</OpeningInfo>
+        <OpeningInfo key={index}>
+          {hours.day}: {hours.hour}
+        </OpeningInfo>
       ))}
     </>
   );
 };
 
 const Info = () => {
-
   return (
     <>
-      <Header></Header>
       <Navigators />
       <OverViews>
         <InfoBox width="1020px" height="450px" marginLeft="180px">
@@ -65,7 +73,9 @@ const Info = () => {
               </PhoneNumberContainer>
             </BottomInfo>
             <AddressInfo>{storeData.address}</AddressInfo>
+
             <OpeningInfoList hoursList={storeData.hours} />
+
             <BookBtn>
               <ReservationButton available={storeData.reservation}>
                 {storeData.reservation
@@ -79,6 +89,7 @@ const Info = () => {
       </OverViews>
 
       <CustomerReviews />
+
       <MenuDisplay>
         <MenuBox width="1563px" height="517px" marginLeft="160px">
           <MenuInfo>
@@ -102,7 +113,7 @@ const MenuDisplay = styled.div`
 `;
 
 const BaseBox = styled.div`
-  width: ${(props) => props.width};
+  width: ${({ width }) => width};
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};
   margin-left: ${(props) => props.marginLeft || "0"};
@@ -114,7 +125,6 @@ const InfoBox = styled(BaseBox)`
   border-radius: 10px;
   padding-top: 0px;
   display: flex;
-  
 `;
 
 const ImageBox = styled.img`
@@ -132,7 +142,7 @@ const StoreInfo = styled.div`
 `;
 const TopInfo = styled.div`
   display: flex;
-  margin-top: 20px;
+  margin-top: 50px;
   align-items: center;
 `;
 
@@ -145,21 +155,25 @@ const StoreName = styled.p`
 
 const Category = styled.div`
   display: flex;
-  margin-right: 20px;
+  margin-right: 40px;
   font-size: 20px;
+  margin-bottom: 0px;
 `;
 
 const BottomInfo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 40px; // 이미지와의 간격 조절
+  margin-top: 5px;
+  margin-left: 40px;
 `;
 
 const AddressInfo = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 20px;
   font-size: 20px;
+  margin-bottom: 20px;
 `;
 
 const OpeningInfo = styled.div`
@@ -171,7 +185,7 @@ const OpeningInfo = styled.div`
 
 const Ratings = styled.p`
   font-size: 20px;
-  margin-top: 30px;
+  margin-top: 0px;
   margin-left: 10px;
   color: black;
   margin-bottom: 10px;
@@ -191,7 +205,7 @@ const PhoneIcon = styled.img`
 `;
 
 const PhoneNumberText = styled.span`
-  font-size: 25px;
+  font-size: 20px;
 `;
 const BookBtn = styled.div`
   margin-top: -50px;
@@ -204,12 +218,13 @@ const ReservationButton = styled.button`
   height: 60px;
   font-size: 18px;
   margin-left: 350px;
-  margin-bottom: 0px;
+  margin-top: -100px;
   cursor: pointer;
   border-radius: 10px;
   border: 0px;
-  background-color: ${(props) => (props.available ? "#ffeccf" : "#d4d4d4")};
-  cursor: ${(props) => (props.available ? "pointer" : "default")};
+
+  background-color: ${({ available }) => (available ? "#ffeccf" : "#d4d4d4")};
+  cursor: ${({ available }) => (available ? "pointer" : "default")};
 `;
 
 const MapBox = styled(BaseBox)`
