@@ -5,13 +5,84 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Review from './Review';
+import Review from "./Review";
+
+const item1 = [
+  {
+    name: "Distance",
+  },
+  {
+    name: "Ranting",
+  },
+  {
+    name: "By Review",
+  },
+  {
+    name: "Today's Popular",
+  },
+];
+
+const item2 = [
+  {
+    name: "By Country",
+  },
+  {
+    name: "Most Recent",
+  },
+  {
+    name: "Highest Rated First",
+  },
+  {
+    name: "Lowest Rated First",
+  },
+];
+const Select = () => {
+  const [select, setSelect] = useState("");
+  const handleClick = (name) => {
+    setSelect(name);
+    console.log(name);
+  };
+  return (
+    <>
+      {item1.map((item) => (
+        <DetailNavDiv
+          key={item.name}
+          onClick={() => handleClick(item.name)} // type 받아 set함수에 넣어준다
+          isClicked={select === item.name}
+        >
+          {item.name}
+        </DetailNavDiv>
+      ))}
+    </>
+  );
+};
+
+const Select2 = () => {
+  const [select, setSelect] = useState("");
+  const handleClick = (name) => {
+    setSelect(name);
+    console.log(name);
+  };
+  return (
+    <>
+      {item2.map((item) => (
+        <DetailNavDiv
+          key={item.name}
+          onClick={() => handleClick(item.name)} // type 받아 set함수에 넣어준다
+          isClicked={select === item.name}
+        >
+          {item.name}
+        </DetailNavDiv>
+      ))}
+    </>
+  );
+};
 
 const Filter = ({ showLine = true }) => {
-    const [search, setSearch] = useState("");
-    const onChange = (e) => {
-      setSearch(e.target.value);
-    };
+  const [search, setSearch] = useState("");
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
   const SearchBox = {
     border: "none",
     outline: "none",
@@ -26,23 +97,11 @@ const Filter = ({ showLine = true }) => {
     <NavBigDiv>
       {showLine ? (
         <>
-          <DetailNavDiv>Distance</DetailNavDiv>
-
-          <DetailNavDiv>Rating</DetailNavDiv>
-
-          <DetailNavDiv>By Review</DetailNavDiv>
-
-          <DetailNavDiv>Today's Popular</DetailNavDiv>
+          <Select />
         </>
       ) : (
         <>
-          <DetailNavDiv>By Country</DetailNavDiv>
-
-          <DetailNavDiv>Most Recent</DetailNavDiv>
-
-          <DetailNavDiv>Highest Rated First</DetailNavDiv>
-
-          <DetailNavDiv>Lowest Rated First</DetailNavDiv>
+          <Select2 />
         </>
       )}
 
@@ -58,7 +117,11 @@ const Filter = ({ showLine = true }) => {
             />
           </NavTextDiv>
           <NavImgDiv>
-            <FontAwesomeIcon icon={faSearch} onClick={goSearch} />
+            <FontAwesomeIcon
+              icon={faSearch}
+              onClick={goSearch}
+              style={{ color: "#ffa42e" }}
+            />
           </NavImgDiv>
         </NavSearchDiv>
       )}
@@ -73,7 +136,7 @@ const HorizonLine = () => {
       style={{
         width: "100%",
         textAlign: "center",
-        borderBottom: "2px solid #D9D9D9",
+        borderBottom: "2px solid #ffa42e",
         lineHeight: "70px",
       }}
     >
@@ -91,7 +154,6 @@ export const NavBigDiv = styled.div`
   position: relative;
   margin-left: 120px;
   margin-right: 120px;
-
 `;
 
 export const DetailNavDiv = styled.div`
@@ -101,13 +163,18 @@ export const DetailNavDiv = styled.div`
   height: 40px;
   float: left;
   text-align: center;
-  line-height: 40px;
+  line-height: 35px;
   font-size: 18px;
-  background-color: #ffeccf;
+  border: 2px solid #ffa42e;
 
   border-radius: 20px;
   cursor: default;
   font-weight: 500;
+  ${({ isClicked }) =>
+    isClicked
+      ? `background-color: #ffa42e;
+    color: white;`
+      : ``}
 `;
 
 const SmallDetailDiv = styled.div`
@@ -130,16 +197,17 @@ export const NavSearchDiv = styled.div`
   top: 15%;
   display: flex;
   justify-content: flex-start;
-  box-shadow: 4px 4px 3px rgb(0, 0, 0, 0.2);
+  border: 2px solid #ffa42e;
 `;
 
 const NavTextDiv = styled.div`
   margin-left: 40px;
   margin-right: auto;
   line-height: 35px;
+  font-size: 16px;
 `;
 const NavImgDiv = styled.div`
   margin-right: 30px;
   margin-left: 100px;
-  margin-top: 3px;
+  margin-top: 6px;
 `;

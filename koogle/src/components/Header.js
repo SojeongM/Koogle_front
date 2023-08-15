@@ -19,7 +19,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faLocationDot} />
             &nbsp; Seoul, Jung- gu, Mugyu-ro , 14
           </LocationDiv>
-          <LogoDiv onClick={goSearch}>koogle✈️🍜</LogoDiv>
+          <LogoDiv onClick={goSearch}>Yummy Smile</LogoDiv>
 
           <SettingDiv>
             <ImgDiv>
@@ -39,6 +39,7 @@ export default Header;
 export const HeaderDiv = styled.div`
   width: 1680px;
   height: 150px;
+  font-family: "Inter", sans-serif;
 
   position: relative;
   margin-left: 120px;
@@ -54,9 +55,12 @@ export const LogoDiv = styled.div`
   width: 560px;
   font-weight: bold;
   float: left;
-  margin-top: 10px;
+  margin-top: 30px;
   font-size: 64px;
-  font-family: "GoryeongStrawberry";
+  margin-left: 60px;
+  font-family: "LOTTERIACHAB";
+  font-weight: 300;
+  color: #ff9100;
 `;
 export const LocationDiv = styled.div`
   width: 560px;

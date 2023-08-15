@@ -100,7 +100,7 @@ const Navigators = () => {
           />
         </NavTextDiv>
         <NavImgDiv>
-          <FontAwesomeIcon icon={faSearch} onClick={goSearch} />
+          <FontAwesomeIcon icon={faSearch} style={{ color: "#ffa42e" } } onClick={goSearch} />
         </NavImgDiv>
       </NavSearchDiv>
     </NavBigDiv>
@@ -112,31 +112,34 @@ export default Navigators;
 
 
 export const NavBigDiv = styled.div`
+  font-family: "Inter", sans-serif;
   width: 1680px;
   height: 45px;
   cursor: default;
   position: relative;
   margin-left: 120px;
   margin-right: 120px;
-  border-bottom: 2px solid #D9D9D9;
+  border-bottom: 2px solid #ffa42e;
 `;
 
 export const DetailNavDiv = styled.div`
-  
   margin: 0 60px;
   float: left;
   text-align: center;
   line-height: 43px;
   font-size: 18px;
+  transition: all 0.2s linear;
+  &:hover {
+    font-size:20px;
+  }
 `;
 
 const SmallDetailDiv = styled.div`
-
   float: left;
   text-align: center;
   line-height: 40px;
   font-size: 18px;
-  color: #D9D9D9;
+  color: #ffa42e;
 `;
 
 
@@ -153,7 +156,7 @@ export const NavSearchDiv = styled.div`
   top: 10%;
   display: flex;
   justify-content: flex-start;
-  border: 2px solid #bcbcbc;
+  border: 2px solid #ffa42e;
 `;
 
 const NavTextDiv = styled.div`
