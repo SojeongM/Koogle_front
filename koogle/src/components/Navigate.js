@@ -1,23 +1,99 @@
 import styled from "styled-components";
 import SearchImg from "../assets/search.png"
+import { useState } from "react";
 
 const Navigators = () => {
+
+  const [search, setSearch] = useState("");
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const SearchBox={
+    border: "none",
+    outline: "none"
+  }
+
   return (
     <NavBigDiv>
-      <DetailNavDiv>korean</DetailNavDiv>
+      <DetailNavDiv
+        onClick={() => {
+          window.scrollTo({
+            top: 200,
+            behavior: "smooth",
+          });
+        }}
+      >
+        korean
+      </DetailNavDiv>
       <SmallDetailDiv>|</SmallDetailDiv>
-      <DetailNavDiv>western</DetailNavDiv>
+      <DetailNavDiv
+        onClick={() => {
+          window.scrollTo({
+            top: 590,
+            behavior: "smooth",
+          });
+        }}
+      >
+        western
+      </DetailNavDiv>
       <SmallDetailDiv>|</SmallDetailDiv>
-      <DetailNavDiv>japanese</DetailNavDiv>
+      <DetailNavDiv
+        onClick={() => {
+          window.scrollTo({
+            top: 980,
+            behavior: "smooth",
+          });
+        }}
+      >
+        japanese
+      </DetailNavDiv>
       <SmallDetailDiv>|</SmallDetailDiv>
-      <DetailNavDiv>chinese</DetailNavDiv>
+      <DetailNavDiv
+        onClick={() => {
+          window.scrollTo({
+            top: 1370,
+            behavior: "smooth",
+          });
+        }}
+      >
+        chinese
+      </DetailNavDiv>
       <SmallDetailDiv>|</SmallDetailDiv>
-      <DetailNavDiv>cafe</DetailNavDiv>
+      <DetailNavDiv
+        onClick={() => {
+          window.scrollTo({
+            top: 1760,
+            behavior: "smooth",
+          });
+        }}
+      >
+        cafe
+      </DetailNavDiv>
       <SmallDetailDiv>|</SmallDetailDiv>
-      <DetailNavDiv>others</DetailNavDiv>
+      <DetailNavDiv
+        onClick={() => {
+          window.scrollTo({
+            top: 2150,
+            behavior: "smooth",
+          });
+        }}
+      >
+        others
+      </DetailNavDiv>
       <NavSearchDiv>
-              <NavTextDiv>search</NavTextDiv>
-              <NavImgDiv><img src={SearchImg}></img> </NavImgDiv>
+        <NavTextDiv>
+          <input
+            style={SearchBox}
+            type="text"
+            value={search}
+            placeholder="Search"
+            onChange={onChange}
+          />
+        </NavTextDiv>
+        <NavImgDiv>
+          <img src={SearchImg}></img>{" "}
+        </NavImgDiv>
       </NavSearchDiv>
     </NavBigDiv>
   );
@@ -25,10 +101,12 @@ const Navigators = () => {
 
 export default Navigators;
 
+
+
 export const NavBigDiv = styled.div`
   width: 1680px;
-  height: 55px;
-
+  height: 45px;
+  cursor: default;
   position: relative;
   margin-left: 120px;
   margin-right: 120px;
@@ -37,20 +115,19 @@ export const NavBigDiv = styled.div`
 `;
 
 export const DetailNavDiv = styled.div`
-
+  
   margin: 0 60px;
   float: left;
   text-align: center;
-  line-height: 50px;
+  line-height: 43px;
   font-size: 20px;
-
 `;
 
 const SmallDetailDiv = styled.div`
 
   float: left;
   text-align: center;
-  line-height: 50px;
+  line-height: 40px;
   font-size: 20px;
 `;
 
@@ -58,23 +135,23 @@ const SmallDetailDiv = styled.div`
 export const NavSearchDiv = styled.div`
   position: absolute;
   width: 400px;
-  height: 35px;
+  height: 30px;
   margin-left: 1250px;
   margin-right: 60px;
-  font-size: 20px;
+  font-size: 18px;
   background-color: white;
   border-radius: 40px;
   text-align: left;
-  top: 15%;
+  top: 10%;
   display: flex;
   justify-content: flex-start;
-  box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.2);
+  border: 2px solid #bcbcbc;
 `;
 
 const NavTextDiv = styled.div`
   margin-left: 40px;
   margin-right: auto;
-  line-height: 30px;
+  line-height: 28px;
 `;
 const NavImgDiv = styled.div`
     margin-right: 30px;
