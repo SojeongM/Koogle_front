@@ -43,12 +43,11 @@ const OpeningInfoList = ({ hoursList }) => {
 const Info = () => {
   const navigate = useNavigate();
   const goSearch = () => {
-
     navigate("/review");
   };
   return (
     <>
-      <Navigators/>
+      <Navigators />
       <OverViews>
         <InfoBox width="1020px" height="450px" marginLeft="180px">
           <ImageBox src={storeData.image} alt="restaurant pic" />
@@ -66,11 +65,13 @@ const Info = () => {
             </BottomInfo>
             <AddressInfo>{storeData.address}</AddressInfo>
             <OpeningInfoList hoursList={storeData.hours} />
-            <button>
-              {storeData.reservation
-                ? "Reservation Available"
-                : "Reservation Unavailable"}
-            </button>
+            <BookBtn>
+              <ReservationButton available={storeData.reservation}>
+                {storeData.reservation
+                  ? "Reservation Available"
+                  : "Reservation Unavailable"}
+              </ReservationButton>
+            </BookBtn>
           </StoreInfo>
         </InfoBox>
         <MapBox />
@@ -127,6 +128,7 @@ const StoreInfo = styled.div`
 `;
 const TopInfo = styled.div`
   display: flex;
+  margin-top: 20px;
   align-items: center;
 `;
 
@@ -187,10 +189,28 @@ const PhoneIcon = styled.img`
 const PhoneNumberText = styled.span`
   font-size: 25px;
 `;
+const BookBtn = styled.div`
+  margin-top: -50px;
+  margin-bottom: 150px;
+  float: right;
+`;
+
+const ReservationButton = styled.button`
+  width: 160px;
+  height: 60px;
+  font-size: 18px;
+  margin-left: 350px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 0px;
+  background-color: ${(props) => (props.available ? "#ffeccf" : "#d4d4d4")};
+  cursor: ${(props) => (props.available ? "pointer" : "default")};
+`;
 
 const MapBox = styled(BaseBox)`
   margin-left: 60px;
-  width: 500px;
+  width: 480px;
   height: 450px;
   border: 1px solid black;
 `;

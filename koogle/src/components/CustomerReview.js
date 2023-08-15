@@ -14,12 +14,11 @@ const reviewDetails = [
 const CustomerReviews = () => {
   const navigate = useNavigate();
   const goSearch = () => {
- 
     navigate("/review");
   };
   return (
     <ReviewsContainer>
-      <ReviewBox width="1563px" height="280px" marginLeft="60px">
+      <ReviewBox width="1563px" height="280px" marginLeft="0px">
         <PhotoReviews onClick={goSearch}>
           <ReviewPhoto src={testimg} alt="리뷰 사진"></ReviewPhoto>
           <ReviewPhoto src={testimg} alt="리뷰 사진"></ReviewPhoto>
@@ -42,7 +41,9 @@ const CustomerReviews = () => {
               {review.icon} {review.text} {review.count}
             </DetailReview>
           ))}
-          <span onClick={goSearch}>See more Review</span>
+          <span onClick={goSearch} style={{ cursor: "pointer" }}>
+            See more Review
+          </span>
         </NaverReview>
       </ReviewBox>
     </ReviewsContainer>
@@ -53,7 +54,7 @@ const ReviewsContainer = styled.div`
   justify-content: center; // 자식 요소들을 가로 방향 중앙에 위치시킴
   align-items: center; // 자식 요소들을 세로 방향 중앙에 위치시킴
   padding: 20px; // 컨테이너 내부의 여백
-  margin: 20px 0 0 40px; // 컨테이너 외부의 상하 여백
+  margin: 20px 0 0 0px; // 컨테이너 외부의 상하 여백
 `;
 
 const BaseBox = styled.div`
@@ -74,6 +75,7 @@ const PhotoReviews = styled.div`
   margin-right: 130px;
   padding-top: 30px;
   padding-left: 40px;
+  cursor: pointer;
 `;
 const ReviewPhoto = styled.img`
   position: relative;
