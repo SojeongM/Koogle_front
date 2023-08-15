@@ -131,6 +131,7 @@ const ReviewPopup = ({ onClose }) => {
         <div>
           {reviewDetails.map((detail) => (
             <DetailButton
+              disableHover={false}
               key={detail.text}
               selected={selectedDetails.includes(detail.text)}
               onClick={() => handleDetailClick(detail.text)}
@@ -215,7 +216,7 @@ const Review = () => {
 
           <AddressInfo>📍Seoul, Jongro- gu, Samcheong-ro 14</AddressInfo>
           <Ratings>
-            🌟 <RatingValue> 4.52</RatingValue>
+            🌟 <RatingValue>4.52</RatingValue>
             290 Reviews
           </Ratings>
         </InfoBox>
@@ -239,9 +240,12 @@ const Review = () => {
                       {koreanReviews[index].flag}{" "}
                       {koreanReviews[index].nickname}
                     </NickName>
+                    <RatingInfo>
+                      <TimeSpan>{koreanReviews[index].reviewTime}</TimeSpan>
+                    </RatingInfo>
                     <div>
                       {selectedReviewDetails.map((detail) => (
-                        <DetailButton key={detail.text}>
+                        <DetailButton disableHover={true} key={detail.text}>
                           {detail.icon} {detail.text}
                         </DetailButton>
                       ))}
@@ -275,7 +279,7 @@ const Review = () => {
                     </RatingInfo>
                     <div>
                       {selectedReviewDetails.map((detail) => (
-                        <DetailButton key={detail.text}>
+                        <DetailButton disableHover={true} key={detail.text}>
                           {detail.icon} {detail.text}
                         </DetailButton>
                       ))}
@@ -401,6 +405,7 @@ const RatingInfo = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  font-size: 15px;
 `;
 
 const TimeSpan = styled.span`
@@ -415,13 +420,6 @@ const ReviewContainer = styled.div`
   margin-top: 10px;
   margin-left: 120px;
   margin-right: 120px;
-`;
-
-const UserDetails = styled.div`
-  font-size: 0.8em;
-  color: grey;
-  margin-top: 5px;
-  margin-bottom: 5px;
 `;
 
 const ReviewText = styled.p`
@@ -554,9 +552,13 @@ const DetailButton = styled.button`
   font-size: 18px;
   border-radius: 5px;
   cursor: pointer;
-  &:hover {
-    background-color: ${(props) => (props.selected ? "#d4d4d4" : "#faddac")};
-  }
+  ${(props) =>
+    !props.disableHover &&
+    `
+      &:hover {
+        background-color: ${props.selected ? "#d4d4d4" : "#faddac"};
+      }
+    `}
 `;
 
 const Blank = styled.div`
