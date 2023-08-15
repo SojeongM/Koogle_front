@@ -1,28 +1,28 @@
 import styled from "styled-components";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import SettingImg from "../assets/setting.png"
+import SettingImg from "../assets/setting.png";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-    return (
-      <HeaderDiv>
-        <DetailHeaderDiv>
-          <LocationDiv>
-            <FontAwesomeIcon icon={faLocationDot} />
-            &nbsp; Seoul, Jung- gu, Mugyu-ro , 14
-          </LocationDiv>
-          <LogoDiv>koogle✈️🍜</LogoDiv>
+  return (
+    <HeaderDiv>
+      <DetailHeaderDiv>
+        <LocationDiv>
+          <FontAwesomeIcon icon={faLocationDot} />
+          &nbsp; Seoul, Jung- gu, Mugyu-ro , 14
+        </LocationDiv>
+        <LogoDiv>koogle✈️🍜</LogoDiv>
 
-          <SettingDiv>
-            <ImgDiv>
-              <img src={SettingImg}></img>
-            </ImgDiv>
-          </SettingDiv>
-        </DetailHeaderDiv>
-      </HeaderDiv>
-    );
-
+        <SettingDiv>
+          <ImgDiv>
+            <img src={SettingImg}></img>
+          </ImgDiv>
+        </SettingDiv>
+      </DetailHeaderDiv>
+    </HeaderDiv>
+  );
 };
 
 export default Header;
@@ -33,13 +33,11 @@ export const HeaderDiv = styled.div`
 
   position: relative;
   margin-left: 120px;
-  
+
   margin-right: 120px;
-  
 `;
 
 export const DetailHeaderDiv = styled.div`
-  
   display: flex;
   font-size: 20px;
 `;
@@ -58,17 +56,12 @@ export const LocationDiv = styled.div`
   line-height: 200px;
 `;
 export const SettingDiv = styled.div`
-
   width: 560px;
   float: right;
-  
-  
 `;
 
 const ImgDiv = styled.div`
- 
-  margin-top:60px;
+  margin-top: 60px;
   margin-right: 10px;
   float: right;
 `;
-
