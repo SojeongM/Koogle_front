@@ -54,7 +54,6 @@ import check from "../assets/check.png";
 import Navigators from "./Navigate";
 import { useAsyncError, useNavigate } from "react-router-dom";
 
-import Header from "./Header";
 
 const krimg = [
   kr_1,
@@ -360,7 +359,7 @@ const Main1 = () => {
 
   return (
     <>
-      <Header></Header>
+     
       <Navigators />
       <BigDiv>
         <BigBody>

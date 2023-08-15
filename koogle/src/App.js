@@ -10,16 +10,16 @@ import Info from "./components/Info";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import UseScrollToTop from "./components/UseScrollToTop";
-import "./components/Font.css"
-import "./reset.css"
-import "./App.css"
+import "./components/Font.css";
+import "./reset.css";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-
+    <>
       <Router>
         <UseScrollToTop />
+        <Header />
         <Routes>
           <Route path="/" element={<Main1 />} />
           <Route path="/search" element={<Main2 />} />
@@ -27,7 +27,7 @@ function App() {
           <Route path="/review" element={<Review />} />
         </Routes>
       </Router>
-    </div>
+    </>
   );
 }
 

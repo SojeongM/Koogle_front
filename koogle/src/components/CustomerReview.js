@@ -12,6 +12,9 @@ const reviewDetails = [
 ];
 
 const CustomerReviews = () => {
+  {
+    /*link 태그로 처리할것 */
+  }
   const navigate = useNavigate();
   const goSearch = () => {
     navigate("/review");
@@ -28,20 +31,32 @@ const CustomerReviews = () => {
             className="last"
           ></ReviewPhoto>
         </PhotoReviews>
+
         <NaverReview>
-          {reviewDetails.map((review, index) => (
-            <DetailReview key={index}>
-              {review.icon} {review.text} {review.count}
-            </DetailReview>
-          ))}
+          <EmojiReviewContainer>
+            <EmojiTitle>Local's Pick</EmojiTitle>
+            {reviewDetails.map((review, index) => (
+              <DetailReview key={index}>
+                {review.icon} {review.text} {review.count}
+              </DetailReview>
+            ))}
+          </EmojiReviewContainer>
         </NaverReview>
+
         <NaverReview>
-          {reviewDetails.map((review, index) => (
-            <DetailReview key={index}>
-              {review.icon} {review.text} {review.count}
-            </DetailReview>
-          ))}
-          <span onClick={goSearch} style={{ cursor: "pointer" }}>
+          <EmojiReviewContainer>
+            <EmojiTitle>Traveler's Pick</EmojiTitle>
+            {reviewDetails.map((review, index) => (
+              <DetailReview key={index}>
+                {review.icon} {review.text} {review.count}
+              </DetailReview>
+            ))}
+          </EmojiReviewContainer>
+
+          <span
+            onClick={goSearch}
+            style={{ cursor: "pointer", alignSelf: "flex-end" }}
+          >
             See more Review
           </span>
         </NaverReview>
@@ -69,14 +84,13 @@ const ReviewBox = styled(BaseBox)`
 
   border-radius: 10px;
   border-radius: 8px; // 모서리 둥글게, 필요에 따라 조절 가능
-  
 `;
 
 const PhotoReviews = styled.div`
   display: flex;
   margin-right: 130px;
-  padding-top: 30px;
-  padding-left: 40px;
+  padding-top: 40px;
+  padding-left: 50px;
   cursor: pointer;
 `;
 const ReviewPhoto = styled.img`
@@ -99,13 +113,19 @@ const ReviewPhoto = styled.img`
   }
 `;
 
+const EmojiReviewContainer = styled.div``;
+const EmojiTitle = styled.div`
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+`;
 const NaverReview = styled.div`
   display: flex;
   flex-direction: column;
 
   width: 337px;
   height: 202px;
-  margin: 40px 40px;
+  margin: 20px 40px;
 `;
 
 const DetailReview = styled.div`
