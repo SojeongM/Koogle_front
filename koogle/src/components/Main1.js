@@ -7,7 +7,7 @@ import {
   faLocationDot,
   faPersonWalking,
   faPhone,
-  faCheckSquare 
+  faCheckSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import SettingImg from "../assets/setting.png";
 import TestImg from "../assets/testimg.jpg";
@@ -55,7 +55,6 @@ import Navigators from "./Navigate";
 import { useNavigate } from "react-router-dom";
 
 const Main1 = () => {
-  
   const krimg = [
     kr_1,
     kr_2,
@@ -69,71 +68,209 @@ const Main1 = () => {
     kr_10,
     kr_11,
     kr_12,
-    kr_13
+    kr_13,
   ];
 
-  const wesimg = [wes_1, wes_2, wes_3, wes_4, wes_5, wes_6]
-  
-  const jpimg = [jp_1, jp_2, jp_3, jp_4]
-  
-  const chiimg = [chi_1, chi_2, chi_3, chi_4]
-  
-  const caimg = [ca_1, ca_2, ca_3, ca_4, ca_5, ca_6]
-  
-  const oimg=[o_1, o_2, o_3, o_4, o_5]
+  const wesimg = [wes_1, wes_2, wes_3, wes_4, wes_5, wes_6];
 
-  const navigate = useNavigate()
+  const jpimg = [jp_1, jp_2, jp_3, jp_4];
+
+  const chiimg = [chi_1, chi_2, chi_3, chi_4];
+
+  const caimg = [ca_1, ca_2, ca_3, ca_4, ca_5, ca_6];
+
+  const oimg = [o_1, o_2, o_3, o_4, o_5];
+
+  const navigate = useNavigate();
   const goSearch = () => {
-    console.log(select)
-    navigate("/search")
-  }
+    console.log(select);
+    navigate("/search");
+  };
 
   const kr = [
-    { id: 1, name: "tteokbokki" },
-    { id: 2, name: "naengmyeon" },
-    { id: 3, name: "bulgogi" },
-    { id: 4, name: "tteokgalbi" },
-    { id: 5, name: "yukhoe" },
-    { id: 6, name: "baekban" },
-    { id: 7, name: "chicken fried" },
-    { id: 8, name: "jokbal, bossam" },
-    { id: 9, name: " jjigae, jjim" },
-    { id: 10, name: "dakbokkeumtang" },
-    { id: 11, name: "samgyeopsal (fork)" },
-    { id: 12, name: "hanu (beef)" },
-    { id: 13, name: "gopchang" },
+    {
+      id: 1,
+      name: "tteokbokki",
+      description: "Spicy rice cakes in gochujang sauce.",
+    },
+    {
+      id: 2,
+      name: "naengmyeon",
+      description: "Cold buckwheat noodles in savory broth.",
+    },
+    {
+      id: 3,
+      name: "bulgogi",
+      description: "Marinated and grilled thinly sliced beef.",
+    },
+    {
+      id: 4,
+      name: "tteokgalbi",
+      description: "Grilled seasoned short beef rib patties.",
+    },
+    {
+      id: 5,
+      name: "yukhoe",
+      description: "Raw beef tartare seasoned with various flavors.",
+    },
+    {
+      id: 6,
+      name: "baekban",
+      description: "Balanced meal with rice, meat, and vegetables.",
+    },
+    {
+      id: 7,
+      name: "chicken fried",
+      description: "Crispy fried chicken with various coatings.",
+    },
+    {
+      id: 8,
+      name: "jokbal, bossam",
+      description: "Tender braised pig's trotters or pork belly wraps.",
+    },
+    {
+      id: 9,
+      name: "jjigae, jjim",
+      description: "Hearty stews or braised dishes with diverse ingredients.",
+    },
+    {
+      id: 10,
+      name: "dakbokkeumtang",
+      description: "Spicy braised chicken stew with vegetables.",
+    },
+    {
+      id: 11,
+      name: "samgyeopsal (fork)",
+      description:
+        "Grilled pork belly slices often enjoyed with lettuce wraps.",
+    },
+    {
+      id: 12,
+      name: "hanu (beef)",
+      description: "High-quality Korean beef known for its tenderness.",
+    },
+    {
+      id: 13,
+      name: "gopchang",
+      description: "Grilled or stir-fried small intestines, a popular snack.",
+    },
   ];
-
   const west = [
-    { id: 1, name: "pasta" },
-    { id: 2, name: "hamburger" },
-    { id: 3, name: "chicken" },
-    { id: 4, name: "pizza" },
-    { id: 5, name: "salad" },
-    { id: 6, name: "steak" },
+    {
+      id: 1,
+      name: "pasta",
+      description: "Delicious Italian noodles served in various sauces.",
+    },
+    {
+      id: 2,
+      name: "hamburger",
+      description: "Classic American sandwich with a juicy meat patty.",
+    },
+    {
+      id: 3,
+      name: "chicken",
+      description: "Tender and flavorful chicken prepared in various styles.",
+    },
+    {
+      id: 4,
+      name: "pizza",
+      description:
+        "Iconic Italian dish with a crispy crust and assorted toppings.",
+    },
+    {
+      id: 5,
+      name: "salad",
+      description: "Fresh and healthy mix of vegetables, often with dressings.",
+    },
+    {
+      id: 6,
+      name: "steak",
+      description: "Premium cuts of beef cooked to perfection.",
+    },
   ];
 
   const chi = [
-    { id: 1, name: "zhajiangmian" },
-    { id: 2, name: "dim sum" },
-    { id: 3, name: "mala" },
-    { id: 4, name: "lamb skewers" },
+    {
+      id: 1,
+      name: "zhajiangmian",
+      description: "Savory Chinese noodles with minced pork sauce.",
+    },
+    {
+      id: 2,
+      name: "dim sum",
+      description:
+        "Assorted bite-sized dishes, a Cantonese culinary tradition.",
+    },
+    {
+      id: 3,
+      name: "mala",
+      description: "Spicy and numbing Sichuanese dish often featuring hotpot.",
+    },
+    {
+      id: 4,
+      name: "lamb skewers",
+      description: "Grilled skewers of flavorful marinated lamb.",
+    },
   ];
 
   const jap = [
-    { id: 1, name: "tonkatsu" },
-    { id: 2, name: "ramen" },
-    { id: 3, name: "sushi" },
-    { id: 4, name: "japanese-curry" },
+    {
+      id: 1,
+      name: "tonkatsu",
+      description: "Crispy breaded and deep-fried pork cutlet.",
+    },
+    {
+      id: 2,
+      name: "ramen",
+      description: "Hearty noodle soup with various toppings and broth styles.",
+    },
+    {
+      id: 3,
+      name: "sushi",
+      description: "Delicate rolls of vinegared rice and fresh seafood.",
+    },
+    {
+      id: 4,
+      name: "japanese-curry",
+      description:
+        "Mild and flavorful curry with rice, a popular comfort food.",
+    },
   ];
 
   const cafe = [
-    { id: 1, name: "cake" },
-    { id: 2, name: "macaron" },
-    { id: 3, name: "ice cream" },
-    { id: 4, name: "sandwich" },
-    { id: 5, name: "doughnut" },
-    { id: 6, name: "outdoor terrace" },
+    {
+      id: 1,
+      name: "cake",
+      description: "Indulgent and sweet dessert often served with coffee.",
+    },
+    {
+      id: 2,
+      name: "macaron",
+      description: "Delicate and colorful French confectionery.",
+    },
+    {
+      id: 3,
+      name: "ice cream",
+      description: "Chilled and creamy treat available in various flavors.",
+    },
+    {
+      id: 4,
+      name: "sandwich",
+      description:
+        "Satisfying combination of fillings between two slices of bread.",
+    },
+    {
+      id: 5,
+      name: "doughnut",
+      description:
+        "Ring-shaped fried pastry often topped with glaze or sprinkles.",
+    },
+    {
+      id: 6,
+      name: "outdoor terrace",
+      description:
+        "Open-air seating area for enjoying refreshments and relaxation.",
+    },
   ];
 
   const others = [
@@ -144,7 +281,6 @@ const Main1 = () => {
     { id: 5, name: "see food" },
     { id: 6, name: "others" },
   ];
- 
 
   const [pick1, setPick1] = useState(kr);
   const [pick2, setPick2] = useState(west);
@@ -188,6 +324,7 @@ const Main1 = () => {
                         select.includes(item) ? "img select" : "img not_select"
                       }
                     ></DetailImg>
+                    <ImgText id="over">{item.description}</ImgText>
                   </FoodImg>
                   <FoodName>{item.name}</FoodName>
                 </FoodDiv>
@@ -226,6 +363,7 @@ const Main1 = () => {
                         select.includes(item) ? "img select" : "img not_select"
                       }
                     ></DetailImg>
+                    <ImgText id="over">{item.description}</ImgText>
                   </FoodImg>
                   <FoodName>{item.name}</FoodName>
                 </FoodDiv>
@@ -265,6 +403,7 @@ const Main1 = () => {
                         select.includes(item) ? "img select" : "img not_select"
                       }
                     ></DetailImg>
+                    <ImgText id="over">{item.description}</ImgText>
                   </FoodImg>
                   <FoodName>{item.name}</FoodName>
                 </FoodDiv>
@@ -303,6 +442,7 @@ const Main1 = () => {
                         select.includes(item) ? "img select" : "img not_select"
                       }
                     ></DetailImg>
+                    <ImgText id="over">{item.description}</ImgText>
                   </FoodImg>
                   <FoodName>{item.name}</FoodName>
                 </FoodDiv>
@@ -341,6 +481,7 @@ const Main1 = () => {
                         select.includes(item) ? "img select" : "img not_select"
                       }
                     ></DetailImg>
+                    <ImgText id="over">{item.description}</ImgText>
                   </FoodImg>
                   <FoodName>{item.name}</FoodName>
                 </FoodDiv>
@@ -409,10 +550,10 @@ const BigBody = styled.div`
 const Category = styled.div`
   height: 45px;
   width: 280px;
-  
+
   background-color: #ffeccf;
   font-size: 20px;
-  line-height: 37px;
+  line-height: 42px;
   margin-left: 5px;
   box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.1);
 `;
@@ -446,22 +587,37 @@ const FoodImg = styled.button`
   border: 0;
   outline: 0;
   background-color: white;
-
-  box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.1);
+  position: relative;
+  &:hover img {
+    transform: scale(1.05);
+    opacity: 0.2;
+  }
   &.table_btn_s {
     opacity: 0.3;
-    
   }
   &.table_btn_ns {
+  }
+  &:hover #over {
+    display: block;
+    text-align: center;
   }
 `;
 
 const DetailImg = styled.img`
+  transition: all 0.2s linear;
   &.select {
-    
   }
   &.not_select {
-    
+  }
+`;
+
+const ImgText = styled.div`
+  position: absolute;
+  top: 40%;
+  font-size: 18px;
+  white-space:normal;
+  &#over {
+    display: none;
   }
 `;
 
@@ -487,12 +643,13 @@ const HorizonLine = () => {
 
 const NextStep = styled.button`
   position: fixed;
-  font-size: 24px;
+  font-size: 20px;
   bottom: 30px;
-  width: 7%;
+  width: 10%;
   height: 5%;
   margin: 0, auto;
-  border: 0;
+  
   background-color: #ffeccf;
-  border-radius: 5px;
+  border-radius: 8px;
+  
 `;

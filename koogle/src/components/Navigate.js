@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import SearchImg from "../assets/search.png"
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Navigators = () => {
 
@@ -13,6 +16,11 @@ const Navigators = () => {
     border: "none",
     outline: "none"
   }
+
+  const navigate = useNavigate();
+  const goSearch = () => {
+    navigate("/search");
+  };
 
   return (
     <NavBigDiv>
@@ -92,7 +100,7 @@ const Navigators = () => {
           />
         </NavTextDiv>
         <NavImgDiv>
-          <img src={SearchImg}></img>{" "}
+          <FontAwesomeIcon icon={faSearch} onClick={goSearch} />
         </NavImgDiv>
       </NavSearchDiv>
     </NavBigDiv>

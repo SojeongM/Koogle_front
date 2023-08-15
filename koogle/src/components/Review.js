@@ -171,6 +171,7 @@ const Review = () => {
   return (
     <>
       <div>
+        <HorizonLine/>
         <InfoBox>
           <ResName>
             Dugahun Restaurant
@@ -262,7 +263,7 @@ const Review = () => {
 const InfoBox = styled.div`
   width: 50vw;
   height: 20vh;
-  margin: 50px 0 40px 165px;
+  margin: 50px 0 40px 120px;
   background-color: #f8f8f8;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -312,7 +313,7 @@ const ReviewBox = styled.div`
   width: 40vw;
   height: 23vw;
   margin-top: 30px;
-  margin-left: 100px;
+  margin-left: 0px;
   background-color: #f8f8f8;
   padding: 10px;
   border: 1px solid #ccc;
@@ -364,7 +365,7 @@ const ReviewContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 0px;
   margin-top: 20px;
-  margin-left: 0px;
+  margin-left: 120px;
 `;
 
 const UserDetails = styled.div`
@@ -489,5 +490,22 @@ const DetailButton = styled.button`
     background-color: ${(props) => (props.selected ? "#d4d4d4" : "#faddac")};
   }
 `;
+
+const HorizonLine = () => {
+  return (
+    <div
+      style={{
+        width: "1680px",
+        textAlign: "center",
+        borderBottom: "2px solid #D9D9D9",
+        lineHeight: "70px",
+        marginLeft: "120px",
+        marginRight: "120px"
+      }}
+    >
+      <span style={{ background: "#fff", padding: "0 0px" }}></span>
+    </div>
+  );
+};
 
 export default Review;

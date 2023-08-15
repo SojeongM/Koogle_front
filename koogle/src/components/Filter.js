@@ -1,7 +1,26 @@
 import styled from "styled-components";
 import SearchImg from "../assets/search.png";
+import Navigators from "./Navigate";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Filter = ({ showLine = true }) => {
+    const [search, setSearch] = useState("");
+    const onChange = (e) => {
+      setSearch(e.target.value);
+    };
+  const SearchBox = {
+    border: "none",
+    outline: "none",
+  };
+
+  const navigate = useNavigate();
+  const goSearch = () => {
+    navigate("/search");
+  };
+
   return (
     <NavBigDiv>
       {showLine ? (
@@ -28,9 +47,17 @@ const Filter = ({ showLine = true }) => {
 
       {showLine && (
         <NavSearchDiv>
-          <NavTextDiv>search</NavTextDiv>
+          <NavTextDiv>
+            <input
+              style={SearchBox}
+              type="text"
+              value={search}
+              placeholder="Search"
+              onChange={onChange}
+            />
+          </NavTextDiv>
           <NavImgDiv>
-            <img src={SearchImg}></img>
+            <FontAwesomeIcon icon={faSearch} onClick={goSearch} />
           </NavImgDiv>
         </NavSearchDiv>
       )}
@@ -72,9 +99,9 @@ export const DetailNavDiv = styled.div`
   float: left;
   text-align: center;
   line-height: 40px;
-  font-size: 20px;
+  font-size: 16px;
   background-color: #fff6e9;
-  box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 2px rgb(0, 0, 0, 0.2);
   border-radius: 20px;
 `;
 
@@ -82,7 +109,7 @@ const SmallDetailDiv = styled.div`
   float: left;
   text-align: center;
   line-height: 48px;
-  font-size: 24px;
+  font-size: 16px;
 `;
 
 export const NavSearchDiv = styled.div`
