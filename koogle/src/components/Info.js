@@ -1,10 +1,17 @@
 import styled from "styled-components";
 import testimg from "../assets/testimg.jpg";
 import phoneimg from "../assets/phone.png";
+import Navigators from "./Navigate";
+import { useNavigate } from "react-router-dom";
 
 const Info = () => {
+  const navigate = useNavigate();
+  const goSearch = () => {
+    navigate("/review");
+  };
   return (
     <>
+      <Navigators />
       <First>
         <InfoBox width="1020px" height="450px" marginLeft="180px">
           <ImageBox src={testimg} alt="rurant pic" />
@@ -57,7 +64,7 @@ const Info = () => {
             <DetailReview>️ ☀️ Nice View 83</DetailReview>
             <DetailReview>️ 🍷 For Special Day 81</DetailReview>
             <DetailReview>️ 🥰 Friendly Service 77</DetailReview>
-            See more Review
+            <span onClick={goSearch}>See more Review</span>
           </NaverReview>
         </ReviewBox>
       </Second>

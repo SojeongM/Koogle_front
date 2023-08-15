@@ -11,11 +11,18 @@ import {
 import SettingImg from "../assets/setting.png";
 import TestImg from "../assets/testimg.jpg";
 import Filter from "./Filter";
+import { useNavigate } from "react-router-dom";
 
 const Main2 = () => {
+
+  const navigate = useNavigate();
+  const goSearch = () => {
+   
+    navigate("/info");
+  };
   return (
     <>
-      <Filter/>
+      <Filter />
       <BigBody>
         <Store>
           <BigImg>
@@ -40,7 +47,7 @@ const Main2 = () => {
                 <FontAwesomeIcon icon={faPersonWalking} />
                 &nbsp;&nbsp;850m
               </Distance>
-              <More>
+              <More onClick={goSearch}>
                 see more&nbsp;
                 <FontAwesomeIcon icon={faArrowRight} />
               </More>
