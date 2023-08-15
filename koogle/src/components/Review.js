@@ -4,7 +4,7 @@ import testimg from "../assets/testimg.jpg";
 import profileimg from "../assets/profile.svg";
 import React from "react";
 import { useState } from "react";
-
+import Header from "./Header";
 import { text } from "@fortawesome/fontawesome-svg-core";
 const reviewDetails = [
   { icon: "🖼️", text: "Nice Interrior" },
@@ -191,6 +191,9 @@ const Review = () => {
   return (
     <>
       <div>
+
+        <Header></Header>
+
         <HorizonLine />
         <InfoBox>
           <ResName>
@@ -284,9 +287,9 @@ const InfoBox = styled.div`
   width: 50vw;
   height: 20vh;
   margin: 50px 0 40px 120px;
-  background-color: #f8f8f8;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+
+  border-radius: 10px;
 `;
 
 const ResName = styled.div`
@@ -334,10 +337,11 @@ const ReviewBox = styled.div`
   height: 23vw;
   margin-top: 30px;
   margin-left: 0px;
-  background-color: #f8f8f8;
+  
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+
+  border-radius: 10px;
 `;
 
 const Profilepic = styled.img`
@@ -394,7 +398,7 @@ const UserDetails = styled.div`
 `;
 
 const ReviewText = styled.p`
-  background-color: #f8f8f8;
+  
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;

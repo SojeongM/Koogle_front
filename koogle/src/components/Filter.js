@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Review from './Review';
 
 const Filter = ({ showLine = true }) => {
     const [search, setSearch] = useState("");
@@ -25,13 +26,13 @@ const Filter = ({ showLine = true }) => {
     <NavBigDiv>
       {showLine ? (
         <>
-          <DetailNavDiv>거리순</DetailNavDiv>
+          <DetailNavDiv>Distance</DetailNavDiv>
 
-          <DetailNavDiv>평점순</DetailNavDiv>
+          <DetailNavDiv>Rating</DetailNavDiv>
 
-          <DetailNavDiv>리뷰순</DetailNavDiv>
+          <DetailNavDiv>By Review</DetailNavDiv>
 
-          <DetailNavDiv>방문순</DetailNavDiv>
+          <DetailNavDiv>Today's Popular</DetailNavDiv>
         </>
       ) : (
         <>
@@ -90,19 +91,23 @@ export const NavBigDiv = styled.div`
   position: relative;
   margin-left: 120px;
   margin-right: 120px;
+
 `;
 
 export const DetailNavDiv = styled.div`
   margin-right: 40px;
+
   width: 200px;
   height: 40px;
   float: left;
   text-align: center;
   line-height: 40px;
-  font-size: 16px;
-  background-color: #fff6e9;
-  box-shadow: 3px 3px 2px rgb(0, 0, 0, 0.2);
+  font-size: 18px;
+  background-color: #ffeccf;
+
   border-radius: 20px;
+  cursor: default;
+  font-weight: 500;
 `;
 
 const SmallDetailDiv = styled.div`
@@ -125,7 +130,7 @@ export const NavSearchDiv = styled.div`
   top: 15%;
   display: flex;
   justify-content: flex-start;
-  box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 3px rgb(0, 0, 0, 0.2);
 `;
 
 const NavTextDiv = styled.div`

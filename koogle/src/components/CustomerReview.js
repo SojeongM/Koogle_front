@@ -65,9 +65,11 @@ const BaseBox = styled.div`
 `;
 const ReviewBox = styled(BaseBox)`
   display: flex;
-  border: 1px solid black;
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+
+  border-radius: 10px;
   border-radius: 8px; // 모서리 둥글게, 필요에 따라 조절 가능
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); // 약간의 그림자 효과
+  
 `;
 
 const PhotoReviews = styled.div`
