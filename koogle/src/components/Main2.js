@@ -33,16 +33,22 @@ const Main2 = () => {
             </First>
 
             <Loc>
-              <FontAwesomeIcon icon={faLocationDot} />
+              <FontAwesomeIcon
+                icon={faLocationDot}
+                style={{ color: "#ffa42e" }}
+              />
               &nbsp; Seoul, Jongro- gu, Samcheong-ro 14
             </Loc>
             <Call>
-              <FontAwesomeIcon icon={faPhone} />
+              <FontAwesomeIcon icon={faPhone} style={{ color: "#ffa42e" }} />
               &nbsp;02-1234-5678
             </Call>
             <Last>
               <Distance>
-                <FontAwesomeIcon icon={faPersonWalking} />
+                <FontAwesomeIcon
+                  icon={faPersonWalking}
+                  style={{ color: "#ffa42e" }}
+                />
                 &nbsp;&nbsp;850m
               </Distance>
               <More onClick={goSearch}>
@@ -76,7 +82,7 @@ const Store = styled.div`
   width: 770px;
   height: 230px;
   margin: 50px auto;
-  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.2);
+  border: 2px solid #D9D9D9;
 
   border-radius: 10px;
   position: relative;
@@ -104,7 +110,7 @@ const Details = styled.div`
 
 const First = styled.div`
   font-size: 30px;
-  margin-top: 25px;
+  margin-top: 35px;
   margin-left: 30px;
 `;
 const Name = styled.div`

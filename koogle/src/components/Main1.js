@@ -445,8 +445,8 @@ const Main1 = () => {
             })}
           </BigFood>
         </BigBody>
+        <NextStep onClick={goSearch}>Next</NextStep>
       </BigDiv>
-      <NextStep onClick={goSearch}>next</NextStep>
     </>
   );
 };
@@ -454,6 +454,8 @@ const Main1 = () => {
 export default Main1;
 
 const BigDiv = styled.div`
+  font-family: "Inter", sans-serif;
+ 
   width: 1680px;
   margin-left: 120px;
   cursor: default;
@@ -469,17 +471,21 @@ const Category = styled.div`
   height: 40px;
   width: 230px;
   font-weight: 500;
-  background-color: #ffeccf;
-  font-size: 18px;
-  line-height: 40px;
+  border: 2px solid #ffa42e;
+  font-size: 20px;
+  line-height: 35px;
   border-radius: 30px;
   margin-left: 5px;
+  background-color:#ffa42e;
+  text-align: center;
+  color: white;
+  
 `;
 
 const BigFood = styled.div`
   height: 310px;
   width: 1680px;
-  white-space: nowrap; // 가로 스크롤의 핵심
+  white-space: nowrap; 
   border: 2px solid #d9d9d9;
   margin-top: 10px;
   border-radius: 20px;
@@ -488,6 +494,7 @@ const BigFood = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  padding: 0 10px;
 `;
 
 const FoodDiv = styled.div`
@@ -509,7 +516,7 @@ const FoodImg = styled.button`
   outline: 0;
   background-color: white;
   position: relative;
- 
+
   ${({ isClicked }) =>
     isClicked
       ? `&:hover img {
@@ -546,11 +553,15 @@ const CheckImg = styled.div`
 `;
 
 const ImgText = styled.div`
-  transition: all 0.2s linear;
+  transition: all 0.4s linear;
   position: absolute;
-  top: 40%;
+  width: 100%;
+  top: 35%;
   font-size: 18px;
+  text-align: center;
+  padding: 20px 10px 20px 10px;
   white-space: normal;
+  font-family: "OTWelcomeRA";
   &#over {
     display: none;
   }
@@ -559,6 +570,7 @@ const ImgText = styled.div`
 const FoodName = styled.div`
   margin-left: 5px;
   line-height: 40px;
+  text-align: center;
 `;
 
 const HorizonLine = () => {
@@ -578,13 +590,15 @@ const HorizonLine = () => {
 
 const NextStep = styled.button`
   margin: 10px 0 40px 0;
-  font-size: 18px;
+  font-size:20px;
   bottom: 30px;
-  width: 10%;
-  height: 50px;
-  margin: 0, auto;
+  width: 100px;
+  height: 40px;
   border: 0;
-  background-color: #ffeccf;
+
+  margin-left: 790px;
+  background-color: #ffa42e;
   font-weight: 500;
   border-radius: 20px;
+  color: white;
 `;
