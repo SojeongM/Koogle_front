@@ -1,0 +1,10 @@
+.btn {
+    height: 200px;
+  width: 300px;
+  background-color: white;
+  box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.1);
+
+    &.active {
+        background-color: lightblue;
+    }
+}
