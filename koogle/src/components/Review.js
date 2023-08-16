@@ -201,7 +201,11 @@ const ReviewPopup = ({ onClose }) => {
 
 const Review = () => {
   const [showPopup, setShowPopup] = React.useState(false);
-
+  if (showPopup) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
   return (
     <>
       <div>
