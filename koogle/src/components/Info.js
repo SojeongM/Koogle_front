@@ -5,6 +5,9 @@ import phoneimg from "../assets/phone.png";
 import Menu from "./Menu";
 import CustomerReviews from "./CustomerReview";
 import Navigators from "./Navigate";
+import logoimg from "../assets/Yummy.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
 import { useNavigate } from "react-router";
 
@@ -32,7 +35,7 @@ const storeData = {
   image: testimg,
   name: "DugaHun Restraurant",
   category: "#Italian",
-  rating: "⭐⭐⭐",
+  rating: 2,
   phone: {
     icon: phoneimg,
     number: "02-1234-5678",
@@ -61,28 +64,43 @@ const Info = () => {
         <InfoBox width="1020px" height="450px" marginLeft="180px">
           <ImageBox src={storeData.image} alt="restaurant pic" />
           <StoreInfo>
-            <TopInfo>
-              <StoreName>{storeData.name}</StoreName>
-              <Ratings>{storeData.rating}</Ratings>
-            </TopInfo>
-            <BottomInfo>
-              <Category>{storeData.category}</Category>
-              <PhoneNumberContainer>
-                <PhoneIcon src={storeData.phone.icon} alt="phone icon" />
-                <PhoneNumberText>{storeData.phone.number}</PhoneNumberText>
-              </PhoneNumberContainer>
-            </BottomInfo>
-            <AddressInfo>{storeData.address}</AddressInfo>
+            <div
+              style={{
+                marginLeft: "20px",
+                display: "flex",
+                padding: "10px 20px",
+                flexDirection: "column",
+              }}
+            >
+              <TopInfo>
+                <StoreName>{storeData.name}</StoreName>
+                {[...Array(storeData.rating)].map((i) => (
+                  <Ratings key={i} src={logoimg} />
+                ))}
+              </TopInfo>
 
-            <OpeningInfoList hoursList={storeData.hours} />
+              <BottomInfo>
+                <Category>{storeData.category}</Category>
+                <PhoneNumberContainer>
+                  <FontAwesomeIcon
+                    icon={faPhone}
+                    style={{ fontSize: "20px", color: "#ffa42e" }}
+                  />
+                  <PhoneNumberText>{storeData.phone.number}</PhoneNumberText>
+                </PhoneNumberContainer>
+              </BottomInfo>
 
-            <BookBtn>
-              <ReservationButton available={storeData.reservation}>
-                {storeData.reservation
-                  ? "Reservation Available"
-                  : "Reservation Unavailable"}
-              </ReservationButton>
-            </BookBtn>
+              <AddressInfo>{storeData.address}</AddressInfo>
+
+              <OpeningInfoList hoursList={storeData.hours} />
+              <BookBtn>
+                <ReservationButton available={storeData.reservation}>
+                  {storeData.reservation
+                    ? "Reservation Available"
+                    : "Reservation Unavailable"}
+                </ReservationButton>
+              </BookBtn>
+            </div>
           </StoreInfo>
         </InfoBox>
         <MapBox />
@@ -125,33 +143,35 @@ const ImageBox = styled.img`
   height: 335px;
   margin-top: 50px;
   margin-left: 40px;
-  object-fit: cover; // 이미지가 박스 안에서 잘리지 않게
+  object-fit: cover;
   border-radius: 10px;
 `;
 
 const StoreInfo = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
+  margin-left: 10px;
 `;
 const TopInfo = styled.div`
   display: flex;
-  margin-top: 50px;
-  align-items: center;
+  margin-top: 35px;
 `;
 
 const StoreName = styled.p`
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 10px; // 다음 요소와의 간격 조절
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: 600;
   color: black;
 `;
 
 const Category = styled.div`
   display: flex;
-  margin-right: 40px;
+  margin-right: 50px;
   font-size: 20px;
-  margin-bottom: 0px;
+  padding: 5px 10px;
+  background-color: #ffa42e;
+  color: white;
+  border-radius: 20px;
 `;
 
 const BottomInfo = styled.div`
@@ -159,7 +179,7 @@ const BottomInfo = styled.div`
   flex-direction: row;
   align-items: center;
   margin-top: 5px;
-  margin-left: 40px;
+  margin-left: 0px;
 `;
 
 const AddressInfo = styled.div`
@@ -177,30 +197,23 @@ const OpeningInfo = styled.div`
   align-items: center;
 `;
 
-const Ratings = styled.p`
-  font-size: 20px;
-  margin-top: 0px;
+const Ratings = styled.img`
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
   margin-left: 10px;
-  color: black;
   margin-bottom: 10px;
 `;
 
 const PhoneNumberContainer = styled.div`
   display: flex;
-  align-items: center; // 이미지와 텍스트를 수직으로 정렬
+  align-items: center;
   font-size: 16px;
   color: black;
 `;
 
-const PhoneIcon = styled.img`
-  width: 25px;
-  height: 25px;
-  margin-right: 10px;
-  border-radius: 10px;
-
-`;
-
 const PhoneNumberText = styled.span`
+  margin-left: 15px;
   font-size: 20px;
 `;
 const BookBtn = styled.div`

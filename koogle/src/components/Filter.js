@@ -24,7 +24,7 @@ const item1 = [
 
 const item2 = [
   {
-    name: "By Country",
+    name: "My Country",
   },
   {
     name: "Most Recent",
