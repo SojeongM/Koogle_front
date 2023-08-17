@@ -11,6 +11,7 @@ import {
 import SettingImg from "../assets/setting.png";
 import TestImg from "../assets/testimg.jpg";
 import Filter from "./Filter";
+import Yummy from "../assets/Yummy.png";
 import { useNavigate } from "react-router";
 
 const Main2 = () => {
@@ -29,7 +30,7 @@ const Main2 = () => {
           <Details>
             <First>
               <Name>Dugahun Restaurant</Name>
-              <Rank>3 Koggle</Rank>
+              <Rank><img src={Yummy} style={{ width: "30px", height: "30px"}} /></Rank>
             </First>
 
             <Loc>
@@ -52,7 +53,7 @@ const Main2 = () => {
                 &nbsp;&nbsp;850m
               </Distance>
               <More onClick={goSearch}>
-                see more&nbsp;
+                see more&nbsp;       
                 <FontAwesomeIcon icon={faArrowRight} />
               </More>
             </Last>
@@ -113,7 +114,8 @@ const First = styled.div`
   font-size: 24px;
   margin-top: 25px;
   margin-left: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  display: flex;
 `;
 const Name = styled.div`
   display: inline-block;
@@ -126,8 +128,10 @@ const Rank = styled.div`
   display: inline-block;
   margin-left: 30px;
   font-size: 24px;
-  margin-bottom: 20px;
-  color: red;
+  margin-top: 7px;
+  
+
+
 `;
 
 const Loc = styled.div`
@@ -152,4 +156,5 @@ const More = styled.div`
   display: inline-block;
   float: right;
   margin-right: 30px;
+  text-decoration: underline;
 `;
