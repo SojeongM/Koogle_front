@@ -52,6 +52,7 @@ import ca_4 from "../assets/ca_4.jpg";
 import ca_5 from "../assets/ca_5.jpg";
 import ca_6 from "../assets/ca_6.jpg";
 import check from "../assets/check.png";
+
 import Navigators from "./Navigate";
 import { useAsyncError, useNavigate } from "react-router-dom";
 
