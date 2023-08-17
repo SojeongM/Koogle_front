@@ -14,54 +14,104 @@ import Filter from "./Filter";
 import Yummy from "../assets/Yummy.png";
 import { useNavigate } from "react-router";
 
+const list = [
+  {
+    id: 1,
+    name: "을밀대",
+    address: "주소 123",
+    image: "/path/to/image",
+    koogle_rating: 1,
+    phone: "02 1234 5678",
+    distance: 850,
+  },
+  {
+    id: 2,
+    name: "수저가",
+    address: "수저가 주소",
+    image: "/path/to/image",
+    koogle_rating: 2,
+    phone: "02 5678 1234",
+    distance: 850,
+  },
+  {
+    id: 3,
+    name: "밀플랜비",
+    address: "밀플랜비 주소",
+    image: "/path/to/image",
+    koogle_rating: 3,
+    phone: "02 0000 0000",
+    distance: 850,
+  },
+];
 const Main2 = () => {
   const navigate = useNavigate();
-  const goSearch = () => {
-    navigate("/info");
+  const goSearch = (item) => {
+    navigate("/info", {
+      state: { resName: item.name, address: item.address, phone: item.phone },
+    });
   };
+
   return (
     <>
       <Filter />
       <BigBody>
-        <Store>
-          <BigImg>
-            <img src={TestImg} object-fit="cover"></img>
-          </BigImg>
-          <Details>
-            <First>
-              <Name>Dugahun Restaurant</Name>
-              <Rank><img src={Yummy} style={{ width: "30px", height: "30px"}} /></Rank>
-            </First>
+        {list.map((item) => (
+          <Store>
+            <BigImg>
+              <img
+                src={TestImg}
+                styled={{ objectFit: "cover" }}
+                alt="store img"
+              ></img>
+            </BigImg>
+            <Details>
+              <First>
+                <Name>{item.name}</Name>
+                <Rank>
+                  {[...Array(item.koogle_rating)].map((i) => (
+                    <img
+                      style={{
+                        width: "27px",
+                        height: "27px",
+                        marginTop: "5px",
+                        marginLeft: "5px",
+                        padding: "1px",
+                      }}
+                      key={i}
+                      src={Yummy}
+                      alt="store"
+                    />
+                  ))}
+                </Rank>
+              </First>
 
-            <Loc>
-              <FontAwesomeIcon
-                icon={faLocationDot}
-                style={{ color: "#ffa42e" }}
-              />
-              &nbsp; Seoul, Jongro- gu, Samcheong-ro 14
-            </Loc>
-            <Call>
-              <FontAwesomeIcon icon={faPhone} style={{ color: "#ffa42e" }} />
-              &nbsp;02-1234-5678
-            </Call>
-            <Last>
-              <Distance>
+              <Loc>
                 <FontAwesomeIcon
-                  icon={faPersonWalking}
+                  icon={faLocationDot}
                   style={{ color: "#ffa42e" }}
                 />
-                &nbsp;&nbsp;850m
-              </Distance>
-              <More onClick={goSearch}>
-                see more&nbsp;       
-                <FontAwesomeIcon icon={faArrowRight} />
-              </More>
-            </Last>
-          </Details>
-        </Store>
-        <Store></Store>
-        <Store></Store>
-        <Store></Store>
+                &nbsp; {item.address}
+              </Loc>
+              <Call>
+                <FontAwesomeIcon icon={faPhone} style={{ color: "#ffa42e" }} />
+                &nbsp;{item.phone}
+              </Call>
+              <Last>
+                <Distance>
+                  <FontAwesomeIcon
+                    icon={faPersonWalking}
+                    style={{ color: "#ffa42e" }}
+                  />
+                  &nbsp;&nbsp;{item.distance}
+                </Distance>
+                <More onClick={() => goSearch(item)}>
+                  see more&nbsp;
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </More>
+              </Last>
+            </Details>
+          </Store>
+        ))}
       </BigBody>
     </>
   );
@@ -84,7 +134,7 @@ const Store = styled.div`
   width: 770px;
   height: 230px;
   margin: 50px auto;
-  border: 2px solid #D9D9D9;
+  border: 2px solid #d9d9d9;
 
   border-radius: 10px;
   position: relative;
@@ -114,8 +164,7 @@ const First = styled.div`
   font-size: 24px;
   margin-top: 25px;
   margin-left: 30px;
-  margin-bottom: 20px;
-  display: flex;
+  margin-bottom: 10px;
 `;
 const Name = styled.div`
   display: inline-block;
@@ -128,10 +177,8 @@ const Rank = styled.div`
   display: inline-block;
   margin-left: 30px;
   font-size: 24px;
-  margin-top: 7px;
-  
-
-
+  margin-bottom: 20px;
+  color: red;
 `;
 
 const Loc = styled.div`
@@ -156,5 +203,4 @@ const More = styled.div`
   display: inline-block;
   float: right;
   margin-right: 30px;
-  text-decoration: underline;
 `;

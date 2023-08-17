@@ -15,9 +15,17 @@ import "./reset.css";
 import "./App.css";
 
 
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
+
 function App() {
   return (
-    <>
+    <RecoilRoot>
       <Router>
         <UseScrollToTop />
         <Header />
@@ -28,7 +36,7 @@ function App() {
           <Route path="/review" element={<Review />} />
         </Routes>
       </Router>
-    </>
+    </RecoilRoot>
   );
 }
 

@@ -3,9 +3,13 @@ import Filter from "./Filter";
 import testimg from "../assets/testimg.jpg";
 import profileimg from "../assets/profile.svg";
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { axios } from "react";
 
 import { text } from "@fortawesome/fontawesome-svg-core";
+import { useRecoilValue } from "recoil";
+import { selectState } from "./atoms/select";
+import { useLocation } from "react-router-dom";
 const reviewDetails = [
   { icon: "🖼️", text: "Nice Interrior" },
   { icon: "🍕", text: "Delicious Food" },
@@ -22,71 +26,98 @@ const selectedReviewDetails = [
   { icon: "🍕", text: "Delicious Food" },
   { icon: "☀️", text: "Nice View" },
 ];
-const reviews = [
-  {
-    profileImage: profileimg,
-    nickname: "Anonymus",
-    flag: "🇰🇷",
-    rating: 4.3,
-    reviewTime: "1month ago",
-    totalReviews: 105,
-    totalPhotos: 20,
-    reviewText: "I visite",
-    reviewPhotos: [testimg, testimg, testimg],
-  },
-  {
-    profileImage: profileimg,
-    nickname: "Anonymus",
-    flag: "🇰🇷",
-    rating: 4.3,
-    reviewTime: "1month ago",
-    totalReviews: 105,
-    totalPhotos: 20,
-    reviewText: "리뷰내용~ 어쩌고 저쩌고 맛있었고",
-    reviewPhotos: [testimg, testimg, testimg],
-  },
 
+const countryFlags = {
+  USA: "🇺🇸",
+  UK: "🇬🇧",
+  KOR: "🇰🇷",
+  JPN: "🇯🇵",
+  CHN: "🇨🇳",
+  GER: "🇩🇪",
+  FRA: "🇫🇷",
+  VNM: "🇻🇳",
+  THA: "🇹🇭",
+};
+
+const datas = [
   {
-    profileImage: profileimg,
-    nickname: "닉네임3",
-    flag: "🇺🇸",
-    rating: 4.8,
-    reviewTime: "2weeks ago",
-    totalReviews: 50,
-    totalPhotos: 10,
-    reviewText:
-      "I visited this restaurant on a friend's recommendation, and I was absolutely delighted with the experience. The ambiance was so cozy, making it a perfect spot for conversations. Their homemade ravioli is definitely something to write home about. Every bite was filled with flavor!",
-    reviewPhotos: [testimg],
-  },
-  {
-    profileImage: profileimg,
-    nickname: "닉네임4",
-    flag: "🇺🇸",
-    rating: 4.8,
-    reviewTime: "2weeks ago",
-    totalReviews: 50,
-    totalPhotos: 10,
-    reviewText:
-      "I visited this restaurant on a friend's recommendation, and I was absolutely delighted with the experience. The ambiance was so cozy, making it a perfect spot for conversations. Their homemade ravioli is definitely something to write home about. Every bite was filled with flavor!",
-    reviewPhotos: [testimg],
-  },
-  {
-    profileImage: profileimg,
-    nickname: "닉네임5",
-    flag: "🇺🇸",
-    rating: 4.8,
-    reviewTime: "2weeks ago",
-    totalReviews: 50,
-    totalPhotos: 10,
-    reviewText:
-      "I visited this restaurant on a friend's recommendation, and I was absolutely delighted with the experience. The ambiance was so cozy, making it a perfect spot for conversations. Their homemade ravioli is definitely something to write home about. Every bite was filled with flavor!",
-    reviewPhotos: [testimg],
+    restaurants_info: {
+      restaurant_name: "을밀대",
+      address: "서울 마포구 숭문길 24 04138",
+      total_review: 8,
+      avg_star: 3.0,
+    },
+    country_reviews: [
+      {
+        username: "GOOGLE",
+        star: 5,
+        total_review_count: 1,
+        total_image_count: 1,
+        content: "존맛탱구리네요~~",
+        country: "KOR",
+        created_at: "1 dyas, 21hours, 19minutes ago",
+      },
+      {
+        username: "GOOGLE",
+        star: 5,
+        total_review_count: 1,
+        total_image_count: 1,
+        content: "존맛탱구리네요~~",
+        country: "USA",
+        created_at: "1 dyas, 21hours, 19minutes ago",
+      },
+      {
+        username: "라이언",
+        star: 3,
+        total_review_count: 1,
+        total_image_count: 1,
+        content: "라이크 라이언~~~~",
+        country: "USA",
+        created_at: "0 dyas, 22hours, 53minutes ago",
+      },
+      {
+        username: "사자",
+        star: 5,
+        total_review_count: 1,
+        total_image_count: 1,
+        content:
+          "사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자ㅍ",
+        country: "USA",
+        created_at: "0 dyas, 22hours, 52minutes ago",
+      },
+      {
+        username: "고구마",
+        star: 3,
+        total_review_count: 1,
+        total_image_count: 1,
+        content:
+          "고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마ㅍ",
+        country: "USA",
+        created_at: "0 dyas, 22hours, 52minutes ago",
+      },
+      {
+        username: "감자",
+        star: 1,
+        total_review_count: 1,
+        total_image_count: 1,
+        content:
+          "감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국ㅍ",
+        country: "CHN",
+        created_at: "0 dyas, 22hours, 51minutes ago",
+      },
+    ],
+    country_list: ["UK", "USA"],
   },
 ];
 
-const koreanReviews = reviews.filter((review) => review.flag === "🇰🇷");
-const otherReviews = reviews.filter((review) => review.flag !== "🇰🇷");
+const koreanReviews = datas
+  .flatMap((data) => data.country_reviews)
+  .filter((review) => review.country === "KOR");
+const otherReviews = datas
+  .flatMap((data) => data.country_reviews)
+  .filter((review) => review.country !== "KOR");
 
+console.log(koreanReviews);
 const ReviewPopup = ({ onClose }) => {
   const [reviewContent, setReviewContent] = useState("");
   const [selectedDetails, setSelectedDetails] = useState([]);
@@ -227,31 +258,49 @@ const ReviewPopup = ({ onClose }) => {
 
 const Review = () => {
   const [showPopup, setShowPopup] = React.useState(false);
+  const select = useRecoilValue(selectState);
+  const location = useLocation();
+
+  const resName = location.state.resName;
+  const address = location.state.address;
+
   if (showPopup) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "auto";
   }
+
+  // useEffect(() => {
+  //   if (select == "") {
+  //     const data = axios.get(
+  //       `${""}/api/restaurants/reviews/${"레스토랑이름"}/review_detail/${""}/`
+  //     );
+  //   }
+  // }, [select]);
+
   return (
     <>
       <div>
         <HorizonLine />
         <InfoBox>
           <ResName>
-            🍴Dugahun Restaurant
+            🍴{datas[0].restaurants_info.restaurant_name}
             <WriteReviewBtn onClick={() => setShowPopup(true)}>
               ✍️Write a Review
             </WriteReviewBtn>
           </ResName>
 
-          <AddressInfo>📍Seoul, Jongro- gu, Samcheong-ro 14</AddressInfo>
+          <AddressInfo>📍{datas[0].restaurants_info.address}</AddressInfo>
           <Ratings>
-            🌟 <RatingValue>4.52</RatingValue>
-            290 Reviews
+            🌟&nbsp;
+            <RatingValue>{datas[0].restaurants_info.avg_star}</RatingValue>
+            {datas[0].restaurants_info.total_review}&nbsp; reviews
           </Ratings>
         </InfoBox>
       </div>
+
       <Filter showLine={false} />
+
       <Blank />
       <HorizonLine />
       <ReviewContainer>
@@ -273,11 +322,12 @@ const Review = () => {
                   />
                   <UserInfo>
                     <NickName>
-                      {koreanReviews[index].flag}{" "}
-                      {koreanReviews[index].nickname}
+                      {countryFlags[koreanReviews[index].country] ||
+                        koreanReviews[index].country}{" "}
+                      {koreanReviews[index].username}
                     </NickName>
                     <RatingInfo>
-                      <TimeSpan>{koreanReviews[index].reviewTime}</TimeSpan>
+                      <TimeSpan>{koreanReviews[index].created_at}</TimeSpan>
                     </RatingInfo>
                     <div>
                       {selectedReviewDetails.map((detail) => (
@@ -288,9 +338,9 @@ const Review = () => {
                     </div>
                   </UserInfo>
                 </Photo>
-                <ReviewText>{koreanReviews[index].reviewText}</ReviewText>
+                <ReviewText>{koreanReviews[index].content}</ReviewText>
                 <PhotoReviewBox>
-                  {koreanReviews[index].reviewPhotos.map((photo) => (
+                  {(koreanReviews[index]?.reviewPhotos || []).map((photo) => (
                     <PhotoReview key={photo} src={photo} alt="리뷰사진" />
                   ))}
                 </PhotoReviewBox>
@@ -311,11 +361,13 @@ const Review = () => {
                   />
                   <UserInfo>
                     <NickName>
-                      {otherReviews[index].flag} {otherReviews[index].nickname}
+                      {countryFlags[otherReviews[index].country] ||
+                        otherReviews[index].country}{" "}
+                      {otherReviews[index].username}
                     </NickName>
                     <RatingInfo>
-                      ⭐ {otherReviews[index].rating}{" "}
-                      <TimeSpan>{otherReviews[index].reviewTime}</TimeSpan>
+                      ⭐ {otherReviews[index].star}{" "}
+                      <TimeSpan>{otherReviews[index].created_at}</TimeSpan>
                     </RatingInfo>
                     <div>
                       {selectedReviewDetails.map((detail) => (
@@ -326,9 +378,9 @@ const Review = () => {
                     </div>
                   </UserInfo>
                 </Photo>
-                <ReviewText>{otherReviews[index].reviewText}</ReviewText>
+                <ReviewText>{otherReviews[index].content}</ReviewText>
                 <PhotoReviewBox>
-                  {otherReviews[index].reviewPhotos.map((photo) => (
+                  {(otherReviews[index]?.reviewPhotos || []).map((photo) => (
                     <PhotoReview key={photo} src={photo} alt="리뷰사진" />
                   ))}
                 </PhotoReviewBox>
