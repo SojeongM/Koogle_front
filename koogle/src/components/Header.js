@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faGear} from "@fortawesome/free-solid-svg-icons";
 
 import SettingImg from "../assets/setting.png";
 import { Link } from "react-router-dom";
+
 
 const Header = () => {
   return (
@@ -20,7 +21,10 @@ const Header = () => {
 
         <SettingDiv>
           <ImgDiv>
-            <img src={SettingImg}></img>
+            <FontAwesomeIcon
+              icon={faGear}
+              style={{ fontSize: "30px", color: "gray" }}
+            />
           </ImgDiv>
         </SettingDiv>
       </DetailHeaderDiv>
@@ -48,7 +52,7 @@ export const DetailHeaderDiv = styled.div`
 export const LogoDiv = styled.div`
   font-family: "LOTTERIACHAB";
 
-  width: 560px;
+  width: 500px;
   float: left;
   margin-top: 30px;
   font-size: 64px;
@@ -67,7 +71,7 @@ export const SettingDiv = styled.div`
 `;
 
 const ImgDiv = styled.div`
-  margin-top: 60px;
+  margin-top: 100px;
   margin-right: 10px;
   float: right;
 `;

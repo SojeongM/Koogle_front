@@ -132,7 +132,7 @@ export const NavSearchDiv = styled.div`
 const NavTextDiv = styled.div`
   margin-left: 40px;
   margin-right: auto;
-  line-height: 28px;
+  line-height: 25px;
 `;
 const NavImgDiv = styled.div`
     margin-right: 30px;
