@@ -31,7 +31,7 @@ const reviews = [
     reviewTime: "1month ago",
     totalReviews: 105,
     totalPhotos: 20,
-    reviewText: "리뷰내용~ 어쩌고 저쩌고 맛있었고",
+    reviewText: "I visite",
     reviewPhotos: [testimg, testimg, testimg],
   },
   {
@@ -45,6 +45,7 @@ const reviews = [
     reviewText: "리뷰내용~ 어쩌고 저쩌고 맛있었고",
     reviewPhotos: [testimg, testimg, testimg],
   },
+
   {
     profileImage: profileimg,
     nickname: "닉네임3",
@@ -53,7 +54,32 @@ const reviews = [
     reviewTime: "2weeks ago",
     totalReviews: 50,
     totalPhotos: 10,
-    reviewText: "또 다른 리뷰 내용~",
+    reviewText:
+      "I visited this restaurant on a friend's recommendation, and I was absolutely delighted with the experience. The ambiance was so cozy, making it a perfect spot for conversations. Their homemade ravioli is definitely something to write home about. Every bite was filled with flavor!",
+    reviewPhotos: [testimg],
+  },
+  {
+    profileImage: profileimg,
+    nickname: "닉네임4",
+    flag: "🇺🇸",
+    rating: 4.8,
+    reviewTime: "2weeks ago",
+    totalReviews: 50,
+    totalPhotos: 10,
+    reviewText:
+      "I visited this restaurant on a friend's recommendation, and I was absolutely delighted with the experience. The ambiance was so cozy, making it a perfect spot for conversations. Their homemade ravioli is definitely something to write home about. Every bite was filled with flavor!",
+    reviewPhotos: [testimg],
+  },
+  {
+    profileImage: profileimg,
+    nickname: "닉네임5",
+    flag: "🇺🇸",
+    rating: 4.8,
+    reviewTime: "2weeks ago",
+    totalReviews: 50,
+    totalPhotos: 10,
+    reviewText:
+      "I visited this restaurant on a friend's recommendation, and I was absolutely delighted with the experience. The ambiance was so cozy, making it a perfect spot for conversations. Their homemade ravioli is definitely something to write home about. Every bite was filled with flavor!",
     reviewPhotos: [testimg],
   },
 ];
@@ -229,11 +255,17 @@ const Review = () => {
       <Blank />
       <HorizonLine />
       <ReviewContainer>
-        {koreanReviews.map((_, index) => (
+        {Array.from({
+          length: Math.max(koreanReviews.length, otherReviews.length),
+        }).map((_, index) => (
           <React.Fragment key={index}>
             {/* 한국 리뷰 */}
             {koreanReviews[index] && (
-              <ReviewBox>
+              <ReviewBox
+                style={{
+                  gridColumn: "1",
+                }}
+              >
                 <Photo>
                   <Profilepic
                     src={koreanReviews[index].profileImage}
@@ -267,7 +299,11 @@ const Review = () => {
 
             {/* 비한국 리뷰 */}
             {otherReviews[index] && (
-              <ReviewBox>
+              <ReviewBox
+                style={{
+                  gridColumn: "2",
+                }}
+              >
                 <Photo>
                   <Profilepic
                     src={otherReviews[index].profileImage}
@@ -428,14 +464,16 @@ const ReviewContainer = styled.div`
 
 const ReviewText = styled.p`
   padding: 10px;
+  font-size: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin: 0 20px;
+  margin: 0px 20px;
+  line-height: 1.4;
 `;
 
 const PhotoReviewBox = styled.div`
   display: flex;
-  margin-top: 10px;
+  margin-top: 5px;
 `;
 const Photo = styled.div`
   display: flex;
@@ -508,7 +546,7 @@ const ImageUploadBtn = styled.label`
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  text-align: center; // label 태그에 대한 중앙 정렬을 위해 추가
+  text-align: center;
   &:hover {
     background-color: #d4d4d4;
   }
@@ -543,7 +581,7 @@ const CancelButton = styled.button`
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-right: 10px; // 버튼 간의 간격
+  margin-right: 10px;
   font-size: 20px;
   cursor: pointer;
   &:hover {
@@ -553,6 +591,7 @@ const CancelButton = styled.button`
 const DetailButton = styled.button`
   background-color: ${(props) => (props.selected ? "#faddac" : "#f8f8f8")};
   margin-top: 10px;
+  margin-right: 10px;
   border: 1px solid #ccc;
   padding: 6px 15px;
   font-size: 18px;
@@ -564,6 +603,7 @@ const DetailButton = styled.button`
       &:hover {
         background-color: ${props.selected ? "#d4d4d4" : "#faddac"};
       }
+       margin: 0px; 
     `}
 `;
 

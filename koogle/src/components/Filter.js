@@ -40,7 +40,6 @@ const Select = () => {
   const [select, setSelect] = useState("");
   const handleClick = (name) => {
     setSelect(name);
-    console.log(name);
   };
   return (
     <>
@@ -59,9 +58,9 @@ const Select = () => {
 
 const Select2 = () => {
   const [select, setSelect] = useState("");
+
   const handleClick = (name) => {
     setSelect(name);
-    console.log(name);
   };
   return (
     <>
@@ -80,6 +79,7 @@ const Select2 = () => {
 
 const Filter = ({ showLine = true }) => {
   const [search, setSearch] = useState("");
+
   const onChange = (e) => {
     setSearch(e.target.value);
   };
