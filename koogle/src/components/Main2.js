@@ -14,6 +14,31 @@ import Filter from "./Filter";
 import Yummy from "../assets/Yummy.png";
 import { useNavigate } from "react-router";
 
+const list=[
+
+   
+        {
+            id:1,
+            name:"restaurant_name",
+            address:"",
+            image:"/path/to/image",
+            koogle_rating:3,
+            phone:"02 809 2324",
+            distance: 850
+        },
+        {
+            id:1,
+            name:"restaurant_name",
+            address:"",
+            image:"/path/to/image",
+            koogle_rating:3,
+            phone:"02 809 2324",
+            distance: 850
+        },
+    
+    
+]
+
 const Main2 = () => {
   const navigate = useNavigate();
   const goSearch = () => {
@@ -28,7 +53,9 @@ const Main2 = () => {
             <img src={TestImg} object-fit="cover"></img>
           </BigImg>
           <Details>
+            
             <First>
+              
               <Name>Dugahun Restaurant</Name>
               <Rank><img src={Yummy} style={{ width: "30px", height: "30px"}} /></Rank>
             </First>
