@@ -8,7 +8,7 @@ import Navigators from "./Navigate";
 import logoimg from "../assets/Yummy.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-
+import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router";
 
 const Operating_Hours = {
@@ -57,6 +57,11 @@ const OpeningInfoList = ({ hoursList }) => {
 };
 
 const Info = () => {
+  const location = useLocation();
+  const resName = location.state?.resName;
+  const address = location.state?.address;
+  const phone = location.state?.phone;
+
   return (
     <>
       <Navigators nav={false} />
@@ -73,7 +78,7 @@ const Info = () => {
               }}
             >
               <TopInfo>
-                <StoreName>{storeData.name}</StoreName>
+                <StoreName>{resName}</StoreName>
                 {[...Array(storeData.rating)].map((i) => (
                   <Ratings key={i} src={logoimg} />
                 ))}
@@ -86,11 +91,11 @@ const Info = () => {
                     icon={faPhone}
                     style={{ fontSize: "20px", color: "#ffa42e" }}
                   />
-                  <PhoneNumberText>{storeData.phone.number}</PhoneNumberText>
+                  <PhoneNumberText>{phone}</PhoneNumberText>
                 </PhoneNumberContainer>
               </BottomInfo>
 
-              <AddressInfo>{storeData.address}</AddressInfo>
+              <AddressInfo>📍 &nbsp;{address}</AddressInfo>
 
               <OpeningInfoList hoursList={storeData.hours} />
               <BookBtn>
@@ -106,7 +111,7 @@ const Info = () => {
         <MapBox />
       </OverViews>
 
-      <CustomerReviews />
+      <CustomerReviews resName={resName} address={address} />
 
       <MenuBox width="1590px" marginLeft="150px">
         <MenuInfo />
