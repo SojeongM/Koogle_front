@@ -378,6 +378,7 @@ const Profilepic = styled.img`
   margin-top: 10px;
   margin-left: 30px;
   margin-right: 30px;
+  object-fit: cover;
 `;
 
 const PhotoReview = styled.img`
@@ -389,6 +390,7 @@ const PhotoReview = styled.img`
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   border-radius: 5px;
+  object-fit: cover;
 `;
 
 const UserInfo = styled.div`
@@ -422,8 +424,6 @@ const ReviewContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 0px;
   margin: 10px 120px;
-  
-  
 `;
 
 const ReviewText = styled.p`
