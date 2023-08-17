@@ -6,6 +6,8 @@ import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Review from "./Review";
+import { useRecoilState, atom } from "recoil";
+import { selectState } from "./atoms/select";
 
 const item1 = [
   {
@@ -57,7 +59,7 @@ const Select = () => {
 };
 
 const Select2 = () => {
-  const [select, setSelect] = useState("");
+  const [select, setSelect] = useRecoilState(selectState);
 
   const handleClick = (name) => {
     setSelect(name);

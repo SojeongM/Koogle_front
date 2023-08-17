@@ -13,18 +13,18 @@ const reviewDetails = [
   { icon: "🥰", text: "Friendly Service", count: 77 },
 ];
 
-const CustomerReviews = () => {
+const CustomerReviews = ({ resName, address }) => {
   {
     /*link 태그로 처리할것 */
   }
   const navigate = useNavigate();
   const goSearch = () => {
-    navigate("/review");
+    navigate("/review", { state: { resName, address } });
   };
   return (
     <ReviewsContainer>
       <ReviewBox width="1560px" height="280px" marginLeft="50px">
-        <PhotoReviews onClick={goSearch}>
+        <PhotoReviews onClick={() => goSearch()}>
           <ReviewPhoto src={testimg} alt="리뷰 사진"></ReviewPhoto>
           <ReviewPhoto src={testimg} alt="리뷰 사진"></ReviewPhoto>
           <ReviewPhoto
@@ -61,7 +61,7 @@ const CustomerReviews = () => {
         </NaverReview>
 
         <span
-          onClick={goSearch}
+          onClick={() => goSearch()}
           style={{
             cursor: "pointer",
             alignSelf: "flex-end",
