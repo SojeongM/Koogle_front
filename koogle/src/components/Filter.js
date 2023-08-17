@@ -12,7 +12,7 @@ const item1 = [
     name: "Distance",
   },
   {
-    name: "Ranting",
+    name: "Ranking",
   },
   {
     name: "By Review",
@@ -154,6 +154,7 @@ export const NavBigDiv = styled.div`
   position: relative;
   margin-left: 120px;
   margin-right: 120px;
+  font-family: "Noto Sans", sans-serif;
 `;
 
 export const DetailNavDiv = styled.div`

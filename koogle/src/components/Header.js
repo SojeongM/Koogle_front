@@ -33,7 +33,7 @@ export default Header;
 export const HeaderDiv = styled.div`
   width: 1680px;
   height: 150px;
-
+  font-family: "Noto Sans", sans-serif;
   position: relative;
   margin-left: 120px;
 
@@ -41,6 +41,7 @@ export const HeaderDiv = styled.div`
 `;
 
 export const DetailHeaderDiv = styled.div`
+  cursor: default;
   display: flex;
   font-size: 18px;
 `;

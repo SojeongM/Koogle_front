@@ -56,7 +56,7 @@ const OpeningInfoList = ({ hoursList }) => {
 const Info = () => {
   return (
     <>
-      <Navigators />
+      <Navigators nav={false} />
       <OverViews>
         <InfoBox width="1020px" height="450px" marginLeft="180px">
           <ImageBox src={storeData.image} alt="restaurant pic" />
@@ -90,13 +90,10 @@ const Info = () => {
 
       <CustomerReviews />
 
-      
-        <MenuBox width="1590px" marginLeft="150px">
-          <MenuInfo/>
-            <Menu />
-          
-        </MenuBox>
-  
+      <MenuBox width="1590px" marginLeft="150px">
+        <MenuInfo />
+        <Menu />
+      </MenuBox>
     </>
   );
 };
@@ -105,6 +102,7 @@ const OverViews = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 40px;
+  font-family: "Noto Sans", sans-serif;
 `;
 
 const BaseBox = styled.div`
@@ -116,7 +114,7 @@ const BaseBox = styled.div`
 
 const InfoBox = styled(BaseBox)`
   border: 2px solid #d9d9d9;
-  
+
   border-radius: 10px;
   padding-top: 0px;
   display: flex;
@@ -128,6 +126,7 @@ const ImageBox = styled.img`
   margin-top: 50px;
   margin-left: 40px;
   object-fit: cover; // 이미지가 박스 안에서 잘리지 않게
+  border-radius: 10px;
 `;
 
 const StoreInfo = styled.div`
@@ -197,6 +196,8 @@ const PhoneIcon = styled.img`
   width: 25px;
   height: 25px;
   margin-right: 10px;
+  border-radius: 10px;
+
 `;
 
 const PhoneNumberText = styled.span`
@@ -236,9 +237,8 @@ const MenuBox = styled(BaseBox)`
   display: flex;
   flex-direction: column;
   align-items: start;
-  
+  font-family: "Noto Sans", sans-serif;
   padding-left: 30px;
-  
 `;
 
 const MenuInfo = styled.div`
@@ -247,6 +247,5 @@ const MenuInfo = styled.div`
   width: auto;
   margin-top: 20px;
   margin-right: 20px;
-  
 `;
 export default Info;

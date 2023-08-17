@@ -80,6 +80,7 @@ const ReviewsContainer = styled.div`
   align-items: center; // 자식 요소들을 세로 방향 중앙에 위치시킴
   padding: 20px; // 컨테이너 내부의 여백
   margin: 20px 0 0 110px; // 컨테이너 외부의 상하 여백
+  font-family: "Noto Sans", sans-serif;
 `;
 
 const CheckImg = styled.div`
@@ -114,6 +115,7 @@ const ReviewPhoto = styled.img`
   position: relative;
   width: 185px;
   height: 190px;
+  
   &.last {
     opacity: 0.4;
 

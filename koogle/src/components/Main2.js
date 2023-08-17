@@ -76,6 +76,7 @@ export const BigBody = styled.div`
   margin-left: 120px;
   margin-top: 50px;
   margin-right: 120px;
+  font-family: "Noto Sans", sans-serif;
 `;
 
 const Store = styled.div`
@@ -109,12 +110,17 @@ const Details = styled.div`
 `;
 
 const First = styled.div`
-  font-size: 30px;
-  margin-top: 35px;
+  font-size: 24px;
+  margin-top: 25px;
   margin-left: 30px;
+  margin-bottom: 10px;
 `;
 const Name = styled.div`
   display: inline-block;
+  background-color: #ffa42e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
 `;
 const Rank = styled.div`
   display: inline-block;

@@ -36,6 +36,7 @@ import o_2 from "../assets/o_2.jpg";
 import o_3 from "../assets/o_3.jpg";
 import o_4 from "../assets/o_4.jpg";
 import o_5 from "../assets/o_5.jpg";
+import o_6 from "../assets/o_6.jpg";
 import jp_1 from "../assets/jp_1.jpg";
 import jp_2 from "../assets/jp_2.jpg";
 import jp_3 from "../assets/jp_3.jpg";
@@ -53,7 +54,6 @@ import ca_6 from "../assets/ca_6.jpg";
 import check from "../assets/check.png";
 import Navigators from "./Navigate";
 import { useAsyncError, useNavigate } from "react-router-dom";
-
 
 const krimg = [
   kr_1,
@@ -79,7 +79,7 @@ const chiimg = [chi_1, chi_2, chi_3, chi_4];
 
 const caimg = [ca_1, ca_2, ca_3, ca_4, ca_5, ca_6];
 
-const oimg = [o_1, o_2, o_3, o_4, o_5];
+const oimg = [o_1, o_2, o_3, o_4, o_5, o_6];
 
 const kr = [
   {
@@ -303,7 +303,7 @@ const others = [
   { id: 3, name: "Maxico", src: o_3 },
   { id: 4, name: "India", src: o_4 },
   { id: 5, name: "see food", src: o_5 },
-  { id: 6, name: "others" },
+  { id: 6, name: "others", src: o_6 },
 ];
 
 const FoodContainer = ({ id, name, description, setSelect, select, src }) => {
@@ -359,8 +359,7 @@ const Main1 = () => {
 
   return (
     <>
-     
-      <Navigators />
+      <Navigators nav={true} />
       <BigDiv>
         <BigBody>
           <Category>Korean-style Food</Category>
@@ -454,8 +453,7 @@ const Main1 = () => {
 export default Main1;
 
 const BigDiv = styled.div`
-  font-family: "Inter", sans-serif;
- 
+  font-family: 'Noto Sans', sans-serif;
   width: 1680px;
   margin-left: 120px;
   cursor: default;
@@ -476,16 +474,15 @@ const Category = styled.div`
   line-height: 35px;
   border-radius: 30px;
   margin-left: 5px;
-  background-color:#ffa42e;
+  background-color: #ffa42e;
   text-align: center;
   color: white;
-  
 `;
 
 const BigFood = styled.div`
   height: 310px;
   width: 1680px;
-  white-space: nowrap; 
+  white-space: nowrap;
   border: 2px solid #d9d9d9;
   margin-top: 10px;
   border-radius: 20px;
@@ -561,7 +558,7 @@ const ImgText = styled.div`
   text-align: center;
   padding: 20px 10px 20px 10px;
   white-space: normal;
-  font-family: "OTWelcomeRA";
+  font-family: "Varela Round", sans-serif;
   &#over {
     display: none;
   }
@@ -590,7 +587,7 @@ const HorizonLine = () => {
 
 const NextStep = styled.button`
   margin: 10px 0 40px 0;
-  font-size:20px;
+  font-size: 20px;
   bottom: 30px;
   width: 100px;
   height: 40px;

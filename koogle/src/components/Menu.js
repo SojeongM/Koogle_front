@@ -33,6 +33,7 @@ function Menu() {
 const MenuContainer = styled.div`
   border: 2px solid #d9d9d9;
   border-radius: 10px;
+  font-family: "Noto Sans", sans-serif;
   margin-bottom: 20px;
 `;
 const MenuTitle = styled.h2`

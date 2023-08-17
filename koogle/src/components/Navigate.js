@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const Navigators = () => {
+const Navigators = ({nav=true}) => {
 
   const [search, setSearch] = useState("");
   const onChange = (e) => {
@@ -15,78 +15,44 @@ const Navigators = () => {
   const SearchBox={
     border: "none",
     outline: "none"
+
+  }
+
+  function NavTrue (point) {
+     window.scrollTo({
+       top: point,
+       behavior: "smooth",
+     });
   }
 
   const navigate = useNavigate();
   const goSearch = () => {
-    navigate("/search");
+    navigate("/");
   };
 
   return (
     <NavBigDiv>
-      <DetailNavDiv
-        onClick={() => {
-          window.scrollTo({
-            top: 200,
-            behavior: "smooth",
-          });
-        }}
-      >
+      <DetailNavDiv onClick={() => (nav ? NavTrue(200) : goSearch())}>
         korean
       </DetailNavDiv>
       <SmallDetailDiv>|</SmallDetailDiv>
-      <DetailNavDiv
-        onClick={() => {
-          window.scrollTo({
-            top: 590,
-            behavior: "smooth",
-          });
-        }}
-      >
+      <DetailNavDiv onClick={() => (nav ? NavTrue(590) : goSearch())}>
         western
       </DetailNavDiv>
       <SmallDetailDiv>|</SmallDetailDiv>
-      <DetailNavDiv
-        onClick={() => {
-          window.scrollTo({
-            top: 980,
-            behavior: "smooth",
-          });
-        }}
-      >
+      <DetailNavDiv onClick={() => (nav ? NavTrue(980) : goSearch())}>
         japanese
       </DetailNavDiv>
       <SmallDetailDiv>|</SmallDetailDiv>
-      <DetailNavDiv
-        onClick={() => {
-          window.scrollTo({
-            top: 1370,
-            behavior: "smooth",
-          });
-        }}
-      >
+      <DetailNavDiv onClick={() => (nav ? NavTrue(1370) : goSearch())}>
         chinese
       </DetailNavDiv>
       <SmallDetailDiv>|</SmallDetailDiv>
-      <DetailNavDiv
-        onClick={() => {
-          window.scrollTo({
-            top: 1760,
-            behavior: "smooth",
-          });
-        }}
-      >
+      <DetailNavDiv onClick={() => (nav ? NavTrue(1760) : goSearch())}>
         cafe
       </DetailNavDiv>
       <SmallDetailDiv>|</SmallDetailDiv>
-      <DetailNavDiv
-        onClick={() => {
-          window.scrollTo({
-            top: 2150,
-            behavior: "smooth",
-          });
-        }}
-      >
+      <DetailNavDiv onClick={() => (nav ? NavTrue(2150) : goSearch())}>
         others
       </DetailNavDiv>
       <NavSearchDiv>
@@ -100,7 +66,11 @@ const Navigators = () => {
           />
         </NavTextDiv>
         <NavImgDiv>
-          <FontAwesomeIcon icon={faSearch} style={{ color: "#ffa42e" } } onClick={goSearch} />
+          <FontAwesomeIcon
+            icon={faSearch}
+            style={{ color: "#ffa42e" }}
+            onClick={goSearch}
+          />
         </NavImgDiv>
       </NavSearchDiv>
     </NavBigDiv>
@@ -112,7 +82,7 @@ export default Navigators;
 
 
 export const NavBigDiv = styled.div`
-  font-family: "Inter", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   width: 1680px;
   height: 45px;
   cursor: default;

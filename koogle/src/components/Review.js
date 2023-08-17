@@ -212,7 +212,7 @@ const Review = () => {
         <HorizonLine />
         <InfoBox>
           <ResName>
-            Dugahun Restaurant
+            🍴Dugahun Restaurant
             <WriteReviewBtn onClick={() => setShowPopup(true)}>
               ✍️Write a Review
             </WriteReviewBtn>
@@ -421,15 +421,16 @@ const ReviewContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0px;
-  margin-top: 10px;
-  margin-left: 120px;
-  margin-right: 120px;
+  margin: 10px 120px;
+  
+  
 `;
 
 const ReviewText = styled.p`
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin: 0 20px;
 `;
 
 const PhotoReviewBox = styled.div`
@@ -452,6 +453,7 @@ const PopupOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Noto Sans", sans-serif;
 `;
 
 const PopupContent = styled.div`
