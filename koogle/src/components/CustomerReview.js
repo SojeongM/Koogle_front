@@ -66,7 +66,7 @@ const CustomerReviews = () => {
             cursor: "pointer",
             alignSelf: "flex-end",
             textDecoration: "underline",
-            marginBottom: "20px"
+            marginBottom: "20px",
           }}
         >
           See more Review
@@ -103,6 +103,7 @@ const ReviewBox = styled(BaseBox)`
 `;
 
 const PhotoReviews = styled.div`
+  position: relative;
   display: flex;
   margin-right: 130px;
   padding-top: 40px;
@@ -111,9 +112,10 @@ const PhotoReviews = styled.div`
   position: relative;
 `;
 const ReviewPhoto = styled.img`
-  
   width: 185px;
   height: 190px;
+  object-fit: cover;
+
   &.last {
     opacity: 0.4;
 
@@ -149,7 +151,7 @@ const NaverReview = styled.div`
 
   width: 300px;
   height: 202px;
-  margin: 20px 20px 20px 0;
+  margin: 20px 35px 20px 0;
 `;
 
 const DetailReview = styled.div`
