@@ -84,7 +84,6 @@ const ReviewsContainer = styled.div`
 
 const CheckImg = styled.div`
   position: absolute;
-
   top: 47%;
   left: 82%;
 `;
