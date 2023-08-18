@@ -10,6 +10,18 @@ import { text } from "@fortawesome/fontawesome-svg-core";
 import { useRecoilValue } from "recoil";
 import { selectState } from "./atoms/select";
 import { useLocation } from "react-router-dom";
+import r_1 from "../assets/r_1.jpg"
+import r_2 from "../assets/r_2.jpg"
+import r_3 from "../assets/r_3.jpg";
+import r_4 from "../assets/r_4.jpg";
+import r_5 from "../assets/r_5.jpg";
+import r_6 from "../assets/r_6.jpg";
+import r_7 from "../assets/r_7.jpg";
+import r_8 from "../assets/r_8.jpg";
+import r_9 from "../assets/r_9.jpg";
+import r_10 from "../assets/r_10.jpg";
+
+
 const reviewDetails = [
   { icon: "🖼️", text: "Nice Interrior" },
   { icon: "🍕", text: "Delicious Food" },
@@ -56,6 +68,7 @@ const datas = [
         content: "존맛탱구리네요~~",
         country: "KOR",
         created_at: "1 dyas, 21hours, 19minutes ago",
+        reviewPhotos: [r_1, r_3],
       },
       {
         username: "GOOGLE",
@@ -65,6 +78,7 @@ const datas = [
         content: "존맛탱구리네요~~",
         country: "USA",
         created_at: "1 dyas, 21hours, 19minutes ago",
+        reviewPhotos: [r_2, r_4],
       },
       {
         username: "라이언",
@@ -74,6 +88,7 @@ const datas = [
         content: "라이크 라이언~~~~",
         country: "USA",
         created_at: "0 dyas, 22hours, 53minutes ago",
+        reviewPhotos: [r_5, r_6],
       },
       {
         username: "사자",
@@ -84,6 +99,7 @@ const datas = [
           "사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자ㅍ",
         country: "USA",
         created_at: "0 dyas, 22hours, 52minutes ago",
+        reviewPhotos: [r_7],
       },
       {
         username: "고구마",
@@ -94,6 +110,7 @@ const datas = [
           "고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마ㅍ",
         country: "USA",
         created_at: "0 dyas, 22hours, 52minutes ago",
+        reviewPhotos: [r_9],
       },
       {
         username: "감자",
@@ -104,6 +121,7 @@ const datas = [
           "감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국ㅍ",
         country: "CHN",
         created_at: "0 dyas, 22hours, 51minutes ago",
+        reviewPhotos: [r_8,r_10],
       },
     ],
     country_list: ["UK", "USA"],
