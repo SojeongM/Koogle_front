@@ -164,38 +164,38 @@ const kr = [
 ];
 const west = [
   {
-    id: 1,
+    id: 14,
     name: "pasta",
     description: "Delicious Italian noodles served in various sauces.",
     src: wes_1,
   },
   {
-    id: 2,
+    id: 15,
     name: "hamburger",
     description: "Classic American sandwich with a juicy meat patty.",
     src: wes_2,
   },
   {
-    id: 3,
+    id: 16,
     name: "chicken",
     description: "Tender and flavorful chicken prepared in various styles.",
     src: wes_3,
   },
   {
-    id: 4,
+    id: 17,
     name: "pizza",
     description:
       "Iconic Italian dish with a crispy crust and assorted toppings.",
     src: wes_4,
   },
   {
-    id: 5,
+    id: 18,
     name: "salad",
     description: "Fresh and healthy mix of vegetables, often with dressings.",
     src: wes_5,
   },
   {
-    id: 6,
+    id: 19,
     name: "steak",
     description: "Premium cuts of beef cooked to perfection.",
     src: wes_6,
@@ -204,25 +204,25 @@ const west = [
 
 const chi = [
   {
-    id: 1,
+    id: 20,
     name: "zhajiangmian",
     description: "Savory Chinese noodles with minced pork sauce.",
     src: chi_1,
   },
   {
-    id: 2,
+    id: 21,
     name: "dim sum",
     description: "Assorted bite-sized dishes, a Cantonese culinary tradition.",
     src: chi_2,
   },
   {
-    id: 3,
+    id: 22,
     name: "mala",
     description: "Spicy and numbing Sichuanese dish often featuring hotpot.",
     src: chi_3,
   },
   {
-    id: 4,
+    id: 23,
     name: "lamb skewers",
     description: "Grilled skewers of flavorful marinated lamb.",
     src: chi_4,
@@ -231,25 +231,25 @@ const chi = [
 
 const jap = [
   {
-    id: 1,
+    id: 24,
     name: "tonkatsu",
     description: "Crispy breaded and deep-fried pork cutlet.",
     src: jp_1,
   },
   {
-    id: 2,
+    id: 25,
     name: "ramen",
     description: "Hearty noodle soup with various toppings and broth styles.",
     src: jp_2,
   },
   {
-    id: 3,
+    id: 26,
     name: "sushi",
     description: "Delicate rolls of vinegared rice and fresh seafood.",
     src: jp_3,
   },
   {
-    id: 4,
+    id: 27,
     name: "japanese-curry",
     description: "Mild and flavorful curry with rice, a popular comfort food.",
     src: jp_4,
@@ -258,39 +258,39 @@ const jap = [
 
 const cafe = [
   {
-    id: 1,
+    id: 28,
     name: "cake",
     description: "Indulgent and sweet dessert often served with coffee.",
     src: ca_1,
   },
   {
-    id: 2,
+    id: 29,
     name: "macaron",
     description: "Delicate and colorful French confectionery.",
     src: ca_2,
   },
   {
-    id: 3,
+    id: 30,
     name: "ice cream",
     description: "Chilled and creamy treat available in various flavors.",
     src: ca_3,
   },
   {
-    id: 4,
+    id: 31,
     name: "sandwich",
     description:
       "Satisfying combination of fillings between two slices of bread.",
     src: ca_4,
   },
   {
-    id: 5,
+    id: 32,
     name: "doughnut",
     description:
       "Ring-shaped fried pastry often topped with glaze or sprinkles.",
     src: ca_5,
   },
   {
-    id: 6,
+    id: 33,
     name: "outdoor terrace",
     description:
       "Open-air seating area for enjoying refreshments and relaxation.",
@@ -313,7 +313,7 @@ const FoodContainer = ({ id, name, description, setSelect, select, src }) => {
   const onClick = () => {
     setisClicked(!isClicked);
     if (isClicked) {
-      const filtered = select.filter((item) => item != name);
+      const filtered = select.filter((item) => item != id);
       setSelect(filtered);
     } else {
       setSelect([...select, id]);
@@ -454,7 +454,7 @@ const Main1 = () => {
 export default Main1;
 
 const BigDiv = styled.div`
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   width: 1680px;
   margin-left: 120px;
   cursor: default;
