@@ -147,7 +147,7 @@ const datas = [
         total_review_count: 1,
         total_image_count: 1,
         content:
-          "A hidden gem in the city! The dishes were crafted with care and expertise. The combination of traditional recipes with a modern twist was phenomenal. Can't wait to visit again.",
+          "A hidden gem in the city! The dishes were crafted with care and expertise. The combination of traditional recipes with a modern twist was phenomenal. Can't wait to visit again!",
         country: "JPN",
         created_at: "0 days, 22hours, 51minutes ago",
         reviewPhotos: [r_8, r_10],
