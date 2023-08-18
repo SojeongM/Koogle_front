@@ -92,7 +92,6 @@ const datas = [
 
         created_at: "1 dyas, 21hours, 19minutes ago",
         reviewPhotos: [r_1, r_3],
-
       },
       {
         username: "WanderlustWill",
@@ -105,7 +104,6 @@ const datas = [
 
         created_at: "1 dyas, 21hours, 19minutes ago",
         reviewPhotos: [r_2, r_4],
-
       },
       {
         username: "EpicureEmma",
@@ -118,7 +116,6 @@ const datas = [
 
         created_at: "0 dyas, 22hours, 53minutes ago",
         reviewPhotos: [r_5, r_6],
-
       },
       {
         username: "Hunter_Chris",
@@ -131,7 +128,6 @@ const datas = [
 
         created_at: "0 dyas, 22hours, 52minutes ago",
         reviewPhotos: [r_7],
-
       },
       {
         username: "GourmetGrace",
@@ -144,7 +140,6 @@ const datas = [
 
         created_at: "0 dyas, 22hours, 52minutes ago",
         reviewPhotos: [r_9],
-
       },
       {
         username: "Yukio",
@@ -152,13 +147,10 @@ const datas = [
         total_review_count: 1,
         total_image_count: 1,
         content:
-
-        reviewPhotos: [r_8,r_10],
-
           "A hidden gem in the city! The dishes were crafted with care and expertise. The combination of traditional recipes with a modern twist was phenomenal. Can't wait to visit again.",
         country: "JPN",
         created_at: "0 days, 22hours, 51minutes ago",
-
+        reviewPhotos: [r_8, r_10],
       },
     ],
     country_list: ["UK", "USA"],
