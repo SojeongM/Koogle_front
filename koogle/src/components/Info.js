@@ -38,7 +38,7 @@ const storeData = {
   image: testimg,
   name: "DugaHun Restraurant",
   category: "#Japanese",
-  rating: 2,
+  rating: 1,
   phone: {
     icon: phoneimg,
     number: "02-1234-5678",
