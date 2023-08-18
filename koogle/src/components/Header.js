@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faGear} from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faGear } from "@fortawesome/free-solid-svg-icons";
 
 import SettingImg from "../assets/setting.png";
 import { Link } from "react-router-dom";
-
 
 const Header = () => {
   return (
@@ -13,7 +12,7 @@ const Header = () => {
       <DetailHeaderDiv>
         <LocationDiv>
           <FontAwesomeIcon icon={faLocationDot} />
-          &nbsp; Seoul, Jung- gu, Mugyu-ro , 14
+          &nbsp; 160 Yanghwa-ro, Mapo-gu, Seoul,
         </LocationDiv>
         <Link to={"/"}>
           <LogoDiv>YummySmile</LogoDiv>

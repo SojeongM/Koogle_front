@@ -10,9 +10,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router";
+import shop_3 from "../assets/shop_3.jpg";
+import mapimg from "../assets/map.jpg";
 
 const Operating_Hours = {
-  Mon: "12:00 - 22: 00",
+  Mon: "Regular Holiday",
   Tue: "12:00 - 22: 00",
   Wed: "12:00 - 22: 00",
   Thur: "12:00 - 22: 00",
@@ -23,18 +25,18 @@ const Operating_Hours = {
 
 const storeData = {
   hours: [
-    { hour: "12:00 - 22: 00", day: "Mon" },
-    { hour: "12:00 - 22: 00", day: "Tue" },
-    { hour: "12:00 - 22: 00", day: "Wed" },
-    { hour: "12:00 - 22: 00", day: "Thr" },
-    { hour: "12:00 - 22: 00", day: "Fri" },
-    { hour: "12:00 - 22: 00", day: "Sat" },
-    { hour: "closed", day: "Sun" },
+    { hour: "Regular Holiday", day: "Mon" },
+    { hour: "Regular Holiday", day: "Tue" },
+    { hour: "11:30 - 21: 00", day: "Wed" },
+    { hour: "11:30 - 21: 00", day: "Thr" },
+    { hour: "11:30 - 21: 00", day: "Fri" },
+    { hour: "11:30 - 21: 00", day: "Sat" },
+    { hour: "11:30 - 21: 00", day: "Sun" },
   ],
 
   image: testimg,
   name: "DugaHun Restraurant",
-  category: "#Italian",
+  category: "#Japanese",
   rating: 2,
   phone: {
     icon: phoneimg,
@@ -67,7 +69,7 @@ const Info = () => {
       <Navigators nav={false} />
       <OverViews>
         <InfoBox width="1020px" height="450px" marginLeft="180px">
-          <ImageBox src={storeData.image} alt="restaurant pic" />
+          <ImageBox src={shop_3} alt="restaurant pic" />
           <StoreInfo>
             <div
               style={{
@@ -108,7 +110,7 @@ const Info = () => {
             </div>
           </StoreInfo>
         </InfoBox>
-        <MapBox />
+        <MapBox src={mapimg} />
       </OverViews>
 
       <CustomerReviews resName={resName} address={address} />
@@ -242,7 +244,7 @@ const ReservationButton = styled.button`
   cursor: ${({ available }) => (available ? "pointer" : "default")};
 `;
 
-const MapBox = styled(BaseBox)`
+const MapBox = styled.img`
   margin-left: 60px;
   width: 480px;
   height: 450px;

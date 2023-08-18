@@ -13,41 +13,49 @@ import TestImg from "../assets/testimg.jpg";
 import Filter from "./Filter";
 import Yummy from "../assets/Yummy.png";
 import { useNavigate } from "react-router";
+import shop_1 from "../assets/shop_1.jpg";
+import shop_2 from "../assets/shop_2.jpg";
+import shop_3 from "../assets/shop_3.jpg";
 
 const list = [
   {
     id: 1,
-    name: "을밀대",
-    address: "주소 123",
-    image: "/path/to/image",
-    koogle_rating: 1,
-    phone: "02 1234 5678",
-    distance: 850,
+    name: "Five Luck Fisheries",
+    address: "2nd floor, 190-4 Seongmisan-ro, Mapo-gu, Seoul (Yeonnam-dong)",
+    image: shop_1,
+    koogle_rating: 2,
+    phone: "070-8683-3500",
+    distance: "634m",
   },
   {
     id: 2,
-    name: "수저가",
-    address: "수저가 주소",
-    image: "/path/to/image",
-    koogle_rating: 2,
-    phone: "02 5678 1234",
-    distance: 850,
+    name: "Mentakamooshow",
+    address: "49-10, Wausan-ro 13-gil, Mapo-gu, Seoul, Republic of Korea",
+    image: shop_2,
+    koogle_rating: 3,
+    phone: "0303-0123-4567",
+    distance: "1km",
   },
   {
     id: 3,
-    name: "밀플랜비",
-    address: "밀플랜비 주소",
-    image: "/path/to/image",
-    koogle_rating: 3,
-    phone: "02 0000 0000",
-    distance: 850,
+    name: "Hakatanaka",
+    address: "2nd floor (Seogyo-dong), 50, Wausan-ro 23-gil, Mapo-gu, Seoul",
+    image: shop_3,
+    koogle_rating: 1,
+    phone: "02-332-3207",
+    distance: "140m",
   },
 ];
 const Main2 = () => {
   const navigate = useNavigate();
   const goSearch = (item) => {
     navigate("/info", {
-      state: { resName: item.name, address: item.address, phone: item.phone },
+      state: {
+        resName: item.name,
+        address: item.address,
+        phone: item.phone,
+        img: item.image,
+      },
     });
   };
 
@@ -59,8 +67,8 @@ const Main2 = () => {
           <Store>
             <BigImg>
               <img
-                src={TestImg}
-                styled={{ objectFit: "cover" }}
+                src={item.image}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 alt="store img"
               ></img>
             </BigImg>
@@ -162,7 +170,7 @@ const Details = styled.div`
 
 const First = styled.div`
   font-size: 24px;
-  margin-top: 25px;
+  margin-top: 15px;
   margin-left: 30px;
   margin-bottom: 10px;
 `;
@@ -175,7 +183,7 @@ const Name = styled.div`
 `;
 const Rank = styled.div`
   display: inline-block;
-  margin-left: 30px;
+  margin-left: 10px;
   font-size: 24px;
   margin-bottom: 20px;
   color: red;

@@ -316,10 +316,7 @@ const Review = () => {
                 }}
               >
                 <Photo>
-                  <Profilepic
-                    src={koreanReviews[index].profileImage}
-                    alt="유저사진"
-                  />
+                  <Profilepic src={profileimg} alt="유저사진" />
                   <UserInfo>
                     <NickName>
                       {countryFlags[koreanReviews[index].country] ||
@@ -355,10 +352,7 @@ const Review = () => {
                 }}
               >
                 <Photo>
-                  <Profilepic
-                    src={otherReviews[index].profileImage}
-                    alt="유저사진"
-                  />
+                  <Profilepic src={profileimg} alt="유저사진" />
                   <UserInfo>
                     <NickName>
                       {countryFlags[otherReviews[index].country] ||

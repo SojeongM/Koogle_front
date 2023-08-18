@@ -4,13 +4,27 @@ import { useNavigate } from "react-router";
 import testimg from "../assets/testimg.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import shop_3 from "../assets/shop_3.jpg";
+import cust_2 from "../assets/customer_2.jpg";
+import cust_3 from "../assets/customer_3.jpg";
+
 
 const reviewDetails = [
+  { icon: "🍕", text: "Delicious Food", count: 340 },
+  { icon: "🍙", text: " It's good for solo dining", count: 157 },
+  { icon: "👨‍🍳", text: "They have a special menu", count: 129 },
   { icon: "🖼️", text: "Nice Interrior", count: 113 },
-  { icon: "🍕", text: "Delicious Food", count: 89 },
   { icon: "☀️", text: "Nice View", count: 83 },
   { icon: "🍷", text: "For Special Day", count: 81 },
   { icon: "🥰", text: "Friendly Service", count: 77 },
+];
+
+const ourDetails = [
+  { icon: "🥰", text: "Friendly Service", count: 53 },
+  { icon: "🍕", text: "Delicious Food", count: 35 },
+  { icon: "👨‍🍳", text: "They have a special menu", count: 32 },
+  { icon: "🍷", text: "For Special Day", count: 26 },
+  { icon: "🍙", text: " It's good for solo dining", count: 20 },
 ];
 
 const CustomerReviews = ({ resName, address }) => {
@@ -25,10 +39,10 @@ const CustomerReviews = ({ resName, address }) => {
     <ReviewsContainer>
       <ReviewBox width="1560px" height="280px" marginLeft="50px">
         <PhotoReviews onClick={() => goSearch()}>
-          <ReviewPhoto src={testimg} alt="리뷰 사진"></ReviewPhoto>
-          <ReviewPhoto src={testimg} alt="리뷰 사진"></ReviewPhoto>
+          <ReviewPhoto src={shop_3} alt="리뷰 사진"></ReviewPhoto>
+          <ReviewPhoto src={cust_2} alt="리뷰 사진"></ReviewPhoto>
           <ReviewPhoto
-            src={testimg}
+            src={cust_3}
             alt="리뷰 사진"
             className="last"
             style={{ position: "relative" }}
@@ -41,7 +55,7 @@ const CustomerReviews = ({ resName, address }) => {
         <NaverReview>
           <EmojiReviewContainer>
             <EmojiTitle>Local's Pick</EmojiTitle>
-            {reviewDetails.map((review, index) => (
+            {reviewDetails.slice(0, 5).map((review, index) => (
               <DetailReview key={index}>
                 {review.icon} {review.text} {review.count}
               </DetailReview>
@@ -52,7 +66,7 @@ const CustomerReviews = ({ resName, address }) => {
         <NaverReview>
           <EmojiReviewContainer>
             <EmojiTitle>Traveler's Pick</EmojiTitle>
-            {reviewDetails.map((review, index) => (
+            {ourDetails.slice(0, 5).map((review, index) => (
               <DetailReview key={index}>
                 {review.icon} {review.text} {review.count}
               </DetailReview>
