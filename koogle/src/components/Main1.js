@@ -316,7 +316,7 @@ const FoodContainer = ({ id, name, description, setSelect, select, src }) => {
       const filtered = select.filter((item) => item != name);
       setSelect(filtered);
     } else {
-      setSelect([...select, name]);
+      setSelect([...select, id]);
     }
   };
   console.log(select);
