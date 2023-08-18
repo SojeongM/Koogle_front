@@ -150,7 +150,7 @@ const ReviewPopup = ({ onClose }) => {
       }
     }
   };
-
+ 
   const handleImageChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
     const alreadySelectedCount = selectedImages.length;
