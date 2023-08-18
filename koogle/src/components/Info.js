@@ -248,7 +248,7 @@ const ReservationButton = styled.button`
   cursor: ${({ available }) => (available ? "pointer" : "default")};
 `;
 
-export const MapBox = styled.img`
+export const MapBox = styled.div`
   margin-left: 60px;
   width: 480px;
   height: 450px;
