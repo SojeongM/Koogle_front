@@ -10,6 +10,18 @@ import { text } from "@fortawesome/fontawesome-svg-core";
 import { useRecoilValue } from "recoil";
 import { selectState } from "./atoms/select";
 import { useLocation } from "react-router-dom";
+import r_1 from "../assets/r_1.jpg"
+import r_2 from "../assets/r_2.jpg"
+import r_3 from "../assets/r_3.jpg";
+import r_4 from "../assets/r_4.jpg";
+import r_5 from "../assets/r_5.jpg";
+import r_6 from "../assets/r_6.jpg";
+import r_7 from "../assets/r_7.jpg";
+import r_8 from "../assets/r_8.jpg";
+import r_9 from "../assets/r_9.jpg";
+import r_10 from "../assets/r_10.jpg";
+
+
 const reviewDetails = [
   { icon: "🖼️", text: "Nice Interrior" },
   { icon: "🍕", text: "Delicious Food" },
@@ -77,7 +89,9 @@ const datas = [
         content:
           "이번 주말에 방문했던 식당은 정말 기대 이상이었어요. 메뉴 하나하나 세심하게 준비된 느낌이 들었고, 직원들의 친절한 서비스도 인상적이었습니다. 특히 주문한 음식의 맛이 기억에 남아 다음에도 꼭 방문하고 싶네요. 코로나19로 힘든 시기지만, 이런 좋은 식당 덕분에 힐링할 수 있었어요. 다들 꼭 한 번 방문해보세요!",
         country: "KOR",
-        created_at: "1 days, 21hours, 19minutes ago",
+
+        created_at: "1 dyas, 21hours, 19minutes ago",
+        reviewPhotos: [r_1, r_3],
       },
       {
         username: "WanderlustWill",
@@ -87,7 +101,9 @@ const datas = [
         content:
           "The ambiance of the restaurant was just impeccable. Every dish we ordered was presented beautifully and tasted even better. Staff were attentive without being intrusive. Will definitely return.",
         country: "USA",
-        created_at: "1 days, 21hours, 19minutes ago",
+
+        created_at: "1 dyas, 21hours, 19minutes ago",
+        reviewPhotos: [r_2, r_4],
       },
       {
         username: "EpicureEmma",
@@ -97,7 +113,9 @@ const datas = [
         content:
           "From the moment we walked in, we felt welcomed. The culinary journey here is simply sublime, with each dish telling its own story. An experience worth every penny.",
         country: "USA",
-        created_at: "5 days, 22hours, 53minutes ago",
+
+        created_at: "0 dyas, 22hours, 53minutes ago",
+        reviewPhotos: [r_5, r_6],
       },
       {
         username: "Hunter_Chris",
@@ -107,7 +125,9 @@ const datas = [
         content:
           "Never have I been so impressed with the fusion of flavors and presentation. Each bite was a delightful surprise. Highly recommend the chef's special!",
         country: "USA",
-        created_at: "0 days, 22hours, 52minutes ago",
+
+        created_at: "0 dyas, 22hours, 52minutes ago",
+        reviewPhotos: [r_7],
       },
       {
         username: "GourmetGrace",
@@ -117,7 +137,9 @@ const datas = [
         content:
           "The music, lighting, and decor created a perfect setting for our anniversary dinner. Coupled with delicious food, it made our night memorable.",
         country: "USA",
-        created_at: "0 days, 22hours, 52minutes ago",
+
+        created_at: "0 dyas, 22hours, 52minutes ago",
+        reviewPhotos: [r_9],
       },
       {
         username: "Yukio",
@@ -125,9 +147,10 @@ const datas = [
         total_review_count: 1,
         total_image_count: 1,
         content:
-          "A hidden gem in the city! The dishes were crafted with care and expertise. The combination of traditional recipes with a modern twist was phenomenal. Can't wait to visit again.",
+          "A hidden gem in the city! The dishes were crafted with care and expertise. The combination of traditional recipes with a modern twist was phenomenal. Can't wait to visit again!",
         country: "JPN",
         created_at: "0 days, 22hours, 51minutes ago",
+        reviewPhotos: [r_8, r_10],
       },
     ],
     country_list: ["UK", "USA"],
@@ -156,7 +179,7 @@ const ReviewPopup = ({ onClose }) => {
       }
     }
   };
-
+ 
   const handleImageChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
     const alreadySelectedCount = selectedImages.length;

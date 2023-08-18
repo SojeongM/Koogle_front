@@ -12,7 +12,8 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router";
 import shop_3 from "../assets/shop_3.jpg";
 import mapimg from "../assets/map.jpg";
-
+import { useRef, useEffect } from "react";
+import Map from "./Map";
 const Operating_Hours = {
   Mon: "Regular Holiday",
   Tue: "12:00 - 22: 00",
@@ -57,6 +58,9 @@ const OpeningInfoList = ({ hoursList }) => {
     </>
   );
 };
+
+
+
 
 const Info = () => {
   const location = useLocation();
@@ -110,7 +114,7 @@ const Info = () => {
             </div>
           </StoreInfo>
         </InfoBox>
-        <MapBox src={mapimg} />
+        <Map/>
       </OverViews>
 
       <CustomerReviews resName={resName} address={address} />
@@ -244,7 +248,7 @@ const ReservationButton = styled.button`
   cursor: ${({ available }) => (available ? "pointer" : "default")};
 `;
 
-const MapBox = styled.img`
+export const MapBox = styled.img`
   margin-left: 60px;
   width: 480px;
   height: 450px;
