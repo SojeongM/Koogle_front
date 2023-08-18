@@ -13,18 +13,29 @@ import { useLocation } from "react-router-dom";
 const reviewDetails = [
   { icon: "🖼️", text: "Nice Interrior" },
   { icon: "🍕", text: "Delicious Food" },
+  { icon: "🍙", text: "It's good for solo dining" },
+  { icon: "👨‍🍳", text: "They have a special menu" },
   { icon: "☀️", text: "Nice View" },
   { icon: "🍷", text: "For Special Day" },
   { icon: "🥰", text: "Friendly Service" },
-  { icon: "😋", text: "음식이 맛있어요" },
-  { icon: "💖", text: "친절해요" },
-  { icon: "✨", text: "매장이 넓어요" },
-  { icon: "😋", text: "특별한 메뉴가 있어요" },
+  { icon: "✨", text: "The Store is Spacious" },
 ];
+
 const selectedReviewDetails = [
   { icon: "🖼️", text: "Nice Interrior" },
   { icon: "🍕", text: "Delicious Food" },
   { icon: "☀️", text: "Nice View" },
+  { icon: "😋", text: "음식이 맛있어요" },
+  { icon: "💖", text: "친절해요" },
+];
+
+const randomData = [
+  { icon: "🍕", text: "Delicious Food" },
+
+  { icon: "🖼️", text: "Nice Interrior" },
+  { icon: "☀️", text: "Nice View" },
+  { icon: "🍷", text: "For Special Day" },
+  { icon: "🥰", text: "Friendly Service" },
 ];
 
 const countryFlags = {
@@ -39,71 +50,84 @@ const countryFlags = {
   THA: "🇹🇭",
 };
 
+/* 최대 5개까지 랜덤 데이터 고르는 함수  */
+function getRandomLength(max) {
+  return Math.floor(Math.random() * 5) + 1;
+}
+function getRandomDetails(details) {
+  const randomLength = getRandomLength(details.length);
+  const shuffledDetails = [...details].sort(() => 0.5 - Math.random());
+  return shuffledDetails.slice(0, randomLength);
+}
+
 const datas = [
   {
     restaurants_info: {
-      restaurant_name: "을밀대",
-      address: "서울 마포구 숭문길 24 04138",
-      total_review: 8,
-      avg_star: 3.0,
+      restaurant_name: "Hakatanaka",
+      address: "2nd floor (Seogyo-dong), 50, Wausan-ro 23-gil, Mapo-gu, Seoul",
+      total_review: 12,
+      avg_star: 4.2,
     },
     country_reviews: [
       {
-        username: "GOOGLE",
-        star: 5,
+        username: "Anonymus",
+        star: 4,
         total_review_count: 1,
         total_image_count: 1,
-        content: "존맛탱구리네요~~",
+        content:
+          "이번 주말에 방문했던 식당은 정말 기대 이상이었어요. 메뉴 하나하나 세심하게 준비된 느낌이 들었고, 직원들의 친절한 서비스도 인상적이었습니다. 특히 주문한 음식의 맛이 기억에 남아 다음에도 꼭 방문하고 싶네요. 코로나19로 힘든 시기지만, 이런 좋은 식당 덕분에 힐링할 수 있었어요. 다들 꼭 한 번 방문해보세요!",
         country: "KOR",
-        created_at: "1 dyas, 21hours, 19minutes ago",
+        created_at: "1 days, 21hours, 19minutes ago",
       },
       {
-        username: "GOOGLE",
-        star: 5,
-        total_review_count: 1,
-        total_image_count: 1,
-        content: "존맛탱구리네요~~",
-        country: "USA",
-        created_at: "1 dyas, 21hours, 19minutes ago",
-      },
-      {
-        username: "라이언",
-        star: 3,
-        total_review_count: 1,
-        total_image_count: 1,
-        content: "라이크 라이언~~~~",
-        country: "USA",
-        created_at: "0 dyas, 22hours, 53minutes ago",
-      },
-      {
-        username: "사자",
+        username: "WanderlustWill",
         star: 5,
         total_review_count: 1,
         total_image_count: 1,
         content:
-          "사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자사자ㅍ",
+          "The ambiance of the restaurant was just impeccable. Every dish we ordered was presented beautifully and tasted even better. Staff were attentive without being intrusive. Will definitely return.",
         country: "USA",
-        created_at: "0 dyas, 22hours, 52minutes ago",
+        created_at: "1 days, 21hours, 19minutes ago",
       },
       {
-        username: "고구마",
-        star: 3,
+        username: "EpicureEmma",
+        star: 5,
         total_review_count: 1,
         total_image_count: 1,
         content:
-          "고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마고구마ㅍ",
+          "From the moment we walked in, we felt welcomed. The culinary journey here is simply sublime, with each dish telling its own story. An experience worth every penny.",
         country: "USA",
-        created_at: "0 dyas, 22hours, 52minutes ago",
+        created_at: "5 days, 22hours, 53minutes ago",
       },
       {
-        username: "감자",
-        star: 1,
+        username: "Hunter_Chris",
+        star: 5,
         total_review_count: 1,
         total_image_count: 1,
         content:
-          "감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국감자국ㅍ",
-        country: "CHN",
-        created_at: "0 dyas, 22hours, 51minutes ago",
+          "Never have I been so impressed with the fusion of flavors and presentation. Each bite was a delightful surprise. Highly recommend the chef's special!",
+        country: "USA",
+        created_at: "0 days, 22hours, 52minutes ago",
+      },
+      {
+        username: "GourmetGrace",
+        star: 4,
+        total_review_count: 1,
+        total_image_count: 1,
+        content:
+          "The music, lighting, and decor created a perfect setting for our anniversary dinner. Coupled with delicious food, it made our night memorable.",
+        country: "USA",
+        created_at: "0 days, 22hours, 52minutes ago",
+      },
+      {
+        username: "Yukio",
+        star: 4,
+        total_review_count: 1,
+        total_image_count: 1,
+        content:
+          "A hidden gem in the city! The dishes were crafted with care and expertise. The combination of traditional recipes with a modern twist was phenomenal. Can't wait to visit again.",
+        country: "JPN",
+        created_at: "0 days, 22hours, 51minutes ago",
       },
     ],
     country_list: ["UK", "USA"],
@@ -327,7 +351,7 @@ const Review = () => {
                       <TimeSpan>{koreanReviews[index].created_at}</TimeSpan>
                     </RatingInfo>
                     <div>
-                      {selectedReviewDetails.map((detail) => (
+                      {getRandomDetails(reviewDetails).map((detail) => (
                         <DetailButton disableHover={true} key={detail.text}>
                           {detail.icon} {detail.text}
                         </DetailButton>
@@ -364,7 +388,7 @@ const Review = () => {
                       <TimeSpan>{otherReviews[index].created_at}</TimeSpan>
                     </RatingInfo>
                     <div>
-                      {selectedReviewDetails.map((detail) => (
+                      {getRandomDetails(reviewDetails).map((detail) => (
                         <DetailButton disableHover={true} key={detail.text}>
                           {detail.icon} {detail.text}
                         </DetailButton>
